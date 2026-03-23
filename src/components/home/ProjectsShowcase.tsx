@@ -208,7 +208,7 @@ export default function ProjectsShowcase({
       </div>
 
       {/* PROJECTS CONTENT */}
-      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: isMobile ? "flex-start" : "center", padding: isMobile ? "10vh 6vw 0" : "0 6vw", gap: isMobile ? "3vw" : "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
+      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: isMobile ? "flex-start" : "center", padding: isMobile ? "16vh 4vw 0" : "0 6vw", gap: isMobile ? "4vw" : "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
         {/* 3D Küp */}
         <div className="mobile-cube" style={{ width: `${CUBE}px`, height: `${CUBE}px`, perspective: "1200px", flexShrink: 0, position: "relative" }}>
           <div ref={cubeRef} style={{ width: `${CUBE}px`, height: `${CUBE}px`, position: "absolute", inset: 0, transformStyle: "preserve-3d", pointerEvents: "none" }}>
@@ -291,14 +291,14 @@ export default function ProjectsShowcase({
         </div>
 
         {/* Süreç Adımları */}
-        <div style={{ flex: "0 0 35%", display: "flex", flexDirection: "column", gap: isMobile ? "0.5rem" : "1.2rem" }}>
-          <div style={{ marginBottom: "0.8rem" }}>
+        <div style={{ width: isMobile ? "100%" : "35%", flex: isMobile ? "none" : "0 0 35%", display: "flex", flexDirection: "column", gap: isMobile ? "0.8rem" : "1.2rem", alignItems: isMobile ? "center" : "flex-start" }}>
+          <div style={{ marginBottom: "0.8rem", textAlign: isMobile ? "center" : "left", width: "100%" }}>
             <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.8rem", letterSpacing: "3px", textTransform: "uppercase" }}>Çalışma Sürecimiz</span>
             <h2 style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.5rem)", fontWeight: 800, fontFamily: "var(--font-heading)", color: "var(--foreground)", marginTop: "0.5rem", lineHeight: 1.1 }}>
               Her Proje Bir<br /><span style={{ color: "var(--accent)" }}>Yolculuktur.</span>
             </h2>
           </div>
-          <div style={{ position: "relative", minHeight: isMobile ? "180px" : "auto" }}>
+          <div style={{ position: "relative", minHeight: isMobile ? "220px" : "auto", width: "100%", maxWidth: isMobile ? "400px" : "100%" }}>
             {processSteps.map((step, idx) => (
               <div key={step.id} style={{
                 position: isMobile ? "absolute" : "relative",
@@ -309,7 +309,7 @@ export default function ProjectsShowcase({
                 opacity: isMobile ? (activeStep === idx ? 1 : 0) : (activeStep === idx ? 1 : 0.5),
                 visibility: isMobile && activeStep !== idx ? "hidden" : "visible",
                 transition: "all 0.5s ease",
-                transform: activeStep === idx ? "translateX(10px)" : "translateX(0)",
+                transform: activeStep === idx ? (isMobile ? "translateX(0)" : "translateX(10px)") : "translateX(0)",
                 pointerEvents: isMobile && activeStep !== idx ? "none" : "auto",
                 marginBottom: isMobile ? 0 : "1.2rem"
               }}>
@@ -321,7 +321,7 @@ export default function ProjectsShowcase({
               </div>
             ))}
           </div>
-          <div style={{ marginTop: "0.5rem", paddingLeft: "4px", display: "flex", gap: "6px", alignItems: "center" }}>
+          <div style={{ marginTop: isMobile ? "1.5rem" : "0.5rem", display: "flex", gap: "6px", alignItems: "center", justifyContent: isMobile ? "center" : "flex-start", width: "100%" }}>
             {[0, 1, 2, 3].map((i) => (
               <div key={i} style={{ width: activeStep === i ? "28px" : "8px", height: "6px", borderRadius: "3px", backgroundColor: activeStep === i ? "var(--accent)" : "rgba(244,246,240,0.15)", transition: "all 0.4s ease" }} />
             ))}
