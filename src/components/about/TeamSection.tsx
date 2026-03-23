@@ -1,30 +1,34 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const team = [
   {
     id: 1,
-    name: "Ozan Karakuş",   // You can change his name to real founder name.
-    role: "Kurucu & Baş Peyzaj Mimarı",
-    desc: "15 yılı aşkın tecrübesiyle, L'art vizyonuna öncülük ediyor. Yenilikçi ve fütüristik tasarımların baş mimarı.",
+    name: "Mete Anıl Küçük",
+    role: "Kurucu & Peyzaj Mimarı",
+    desc: "7 yıllık tecrübesiyle L'art Peyzaj'ın vizyonunu şekillendiriyor. Modern ve sürdürülebilir tasarımların baş mimarı olarak doğaya estetik dokunuşlar katıyor.",
     bg: "linear-gradient(to top, rgba(163,204,57,0.1), rgba(0,0,0,0.5))",
+    image: "/ekip/mete-anil.jpeg"
   },
   {
     id: 2,
-    name: "Elif Kaya",
-    role: "Kıdemli Tasarım Yöneticisi",
-    desc: "Modern villa bahçeleri ve otel konseptlerinde uzmanlaşmış ödüllü tasarımcı. Estetiğin ince detaylarına hükmeder.",
+    name: "Berkan Koca",
+    role: "Kurucu & Peyzaj Mimarı",
+    desc: "7 yıllık saha ve tasarım tecrübesiyle projelerin kusursuz uygulanmasına liderlik ediyor. Estetik vizyonu, mühendislik disipliniyle harmanlıyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
+    image: "/ekip/berkan.jpeg"
   },
   {
     id: 3,
-    name: "Ahmet Yılmaz",
-    role: "Saha ve Uygulama Şefi",
-    desc: "Tasarımların kağıt üzerinden kusursuzca toprağa aktarılmasını sağlayan saha dehası. Sert zemin uzmanı.",
+    name: "Mehmet Ozan Aktürk",
+    role: "Peyzaj Mimarı & Tasarım Müdürü",
+    desc: "7 yıllık tecrübesiyle yenilikçi peyzaj konseptlerine hayat veriyor. Tasarım sürecinin her aşamasında sanatsal yaklaşımıyla ekibe ilham kaynağı oluyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
+    image: "/ekip/ozan-akturk.jpg"
   }
 ];
 
@@ -91,12 +95,15 @@ export default function TeamSection() {
                 e.currentTarget.style.borderColor = "rgba(255,255,255,0.04)";
              }}
            >
-             {/* Soyut Profil Çerçevesi (Gerçek resim yoksa premium durur) */}
-             <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: member.bg, marginBottom: "2rem", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                {/* İnisiyaller */}
-                <span style={{ fontSize: "2rem", fontWeight: 700, color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>
-                   {member.name.split(" ").map(n => n[0]).join("")}
-                </span>
+             {/* Profil Çerçevesi */}
+             <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: member.bg, marginBottom: "2rem", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
+                {member.image ? (
+                  <Image src={member.image} alt={member.name} fill style={{ objectFit: "cover", objectPosition: "center top" }} unoptimized />
+                ) : (
+                  <span style={{ fontSize: "2rem", fontWeight: 700, color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>
+                     {member.name.split(" ").map(n => n[0]).join("")}
+                  </span>
+                )}
              </div>
              
              <h4 style={{ fontSize: "1.5rem", fontWeight: 800, fontFamily: "var(--font-heading)", color: "var(--foreground)", marginBottom: "0.5rem" }}>
