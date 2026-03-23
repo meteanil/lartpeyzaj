@@ -12,7 +12,7 @@ const team = [
     role: "Kurucu & Peyzaj Mimarı",
     desc: "7 yıllık tecrübesiyle L'art Peyzaj'ın vizyonunu şekillendiriyor. Modern ve sürdürülebilir tasarımların baş mimarı olarak doğaya estetik dokunuşlar katıyor.",
     bg: "linear-gradient(to top, rgba(163,204,57,0.1), rgba(0,0,0,0.5))",
-    image: "/ekip/mete-anil.jpeg"
+    image: "/Ekip/mete-anil.jpeg"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const team = [
     role: "Kurucu & Peyzaj Mimarı",
     desc: "7 yıllık saha ve tasarım tecrübesiyle projelerin kusursuz uygulanmasına liderlik ediyor. Estetik vizyonu, mühendislik disipliniyle harmanlıyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
-    image: "/ekip/berkan.jpeg"
+    image: "/Ekip/berkan.jpeg"
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const team = [
     role: "Peyzaj Mimarı & Tasarım Müdürü",
     desc: "7 yıllık tecrübesiyle yenilikçi peyzaj konseptlerine hayat veriyor. Tasarım sürecinin her aşamasında sanatsal yaklaşımıyla ekibe ilham kaynağı oluyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
-    image: "/ekip/ozan-akturk.jpg"
+    image: "/Ekip/ozan-akturk.jpg"
   }
 ];
 
