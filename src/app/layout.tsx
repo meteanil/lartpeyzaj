@@ -46,10 +46,6 @@ export const metadata: Metadata = {
     description: "Doğayı ve modern mimariyi birleştiren premium peyzaj tasarım firması.",
     images: ["/lart-Logo3.png"],
   },
-  icons: {
-    icon: "/ufak_logo.png",
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 export default function RootLayout({
