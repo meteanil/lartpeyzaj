@@ -13,7 +13,7 @@ const team = [
     desc: "7 yıllık tecrübesiyle L'art Peyzaj'ın vizyonunu şekillendiriyor. Modern ve sürdürülebilir tasarımların baş mimarı olarak doğaya estetik dokunuşlar katıyor.",
     bg: "linear-gradient(to top, rgba(163,204,57,0.1), rgba(0,0,0,0.5))",
     image: "/Ekip/mete-anil.jpeg",
-    objectPosition: "center 85%",
+    objectPosition: "center 22%",
     scale: 1.15
   },
   {
@@ -24,7 +24,7 @@ const team = [
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
     image: "/Ekip/berkan.jpeg",
     objectPosition: "center center",
-    scale: 1.6
+    scale: 2.2
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const team = [
     desc: "7 yıllık tecrübesiyle yenilikçi peyzaj konseptlerine hayat veriyor. Tasarım sürecinin her aşamasında sanatsal yaklaşımıyla ekibe ilham kaynağı oluyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
     image: "/Ekip/ozan-akturk.jpg",
-    objectPosition: "center 85%",
+    objectPosition: "center 15%",
     scale: 1.15
   }
 ];
