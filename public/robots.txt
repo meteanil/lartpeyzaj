@@ -1,0 +1,6 @@
+# L'art Peyzaj Mimarlık — robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://lartpeyzaj.com/sitemap.xml
