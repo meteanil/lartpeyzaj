@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/lart-Logo3.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "L'art Peyzaj Mimarlık",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "L'art Peyzaj Mimarlık | Konya",
     description: "Doğayı ve modern mimariyi birleştiren premium peyzaj tasarım firması.",
-    images: ["/lart-Logo3.png"],
+    images: ["/og-image.png"],
   },
 };
 
