@@ -34,11 +34,13 @@ export default function ProjectsShowcase({
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [CUBE, setCube] = useState(380);
+  const [isMobile, setIsMobile] = useState(false);
   const HALF = CUBE / 2;
 
   useEffect(() => {
     const handleResize = () => {
-      setCube(window.innerWidth < 480 ? window.innerWidth * 0.8 : 380);
+      setIsMobile(window.innerWidth < 768);
+      setCube(window.innerWidth < 480 ? window.innerWidth * 0.55 : 380);
     };
     
     if (typeof window !== "undefined") {
@@ -206,7 +208,7 @@ export default function ProjectsShowcase({
       </div>
 
       {/* PROJECTS CONTENT */}
-      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 6vw", gap: "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
+      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: isMobile ? "flex-start" : "center", justifyContent: "center", padding: isMobile ? "12vh 6vw 0" : "0 6vw", gap: "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
         {/* 3D Küp */}
         <div className="mobile-cube" style={{ width: `${CUBE}px`, height: `${CUBE}px`, perspective: "1200px", flexShrink: 0, position: "relative" }}>
           <div ref={cubeRef} style={{ width: `${CUBE}px`, height: `${CUBE}px`, position: "absolute", inset: 0, transformStyle: "preserve-3d", pointerEvents: "none" }}>
@@ -289,28 +291,36 @@ export default function ProjectsShowcase({
         </div>
 
         {/* Süreç Adımları */}
-        <div style={{ flex: "0 0 35%", display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+        <div style={{ flex: "0 0 35%", display: "flex", flexDirection: "column", gap: isMobile ? "0.5rem" : "1.2rem" }}>
           <div style={{ marginBottom: "0.8rem" }}>
             <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.8rem", letterSpacing: "3px", textTransform: "uppercase" }}>Çalışma Sürecimiz</span>
             <h2 style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.5rem)", fontWeight: 800, fontFamily: "var(--font-heading)", color: "var(--foreground)", marginTop: "0.5rem", lineHeight: 1.1 }}>
               Her Proje Bir<br /><span style={{ color: "var(--accent)" }}>Yolculuktur.</span>
             </h2>
           </div>
-          {processSteps.map((step, idx) => (
-            <div key={step.id} style={{
-              padding: "1.2rem 1.5rem", borderRadius: "12px",
-              border: `1px solid ${activeStep === idx ? "rgba(192,215,52,0.4)" : "rgba(244,246,240,0.06)"}`,
-              backgroundColor: activeStep === idx ? "rgba(192,215,52,0.08)" : "rgba(244,246,240,0.02)",
-              transition: "all 0.5s ease",
-              transform: activeStep === idx ? "translateX(10px)" : "translateX(0)",
-            }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.4rem" }}>
-                <div style={{ width: "32px", height: "32px", borderRadius: "50%", border: `2px solid ${activeStep === idx ? "var(--accent)" : "rgba(244,246,240,0.15)"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.8rem", fontWeight: 800, color: activeStep === idx ? "var(--accent)" : "var(--muted)", fontFamily: "var(--font-heading)", transition: "all 0.5s ease" }}>{step.id}</div>
-                <h4 style={{ fontSize: "1rem", fontWeight: 700, fontFamily: "var(--font-heading)", color: activeStep === idx ? "var(--foreground)" : "var(--muted)", transition: "color 0.5s ease" }}>{step.title}</h4>
+          <div style={{ position: "relative", minHeight: isMobile ? "140px" : "auto" }}>
+            {processSteps.map((step, idx) => (
+              <div key={step.id} style={{
+                position: isMobile ? "absolute" : "relative",
+                top: 0, left: 0, width: "100%",
+                padding: "1.2rem 1.5rem", borderRadius: "12px",
+                border: `1px solid ${activeStep === idx ? "rgba(192,215,52,0.4)" : "rgba(244,246,240,0.06)"}`,
+                backgroundColor: activeStep === idx ? "rgba(192,215,52,0.08)" : "rgba(244,246,240,0.02)",
+                opacity: isMobile ? (activeStep === idx ? 1 : 0) : (activeStep === idx ? 1 : 0.5),
+                visibility: isMobile && activeStep !== idx ? "hidden" : "visible",
+                transition: "all 0.5s ease",
+                transform: activeStep === idx ? "translateX(10px)" : "translateX(0)",
+                pointerEvents: isMobile && activeStep !== idx ? "none" : "auto",
+                marginBottom: isMobile ? 0 : "1.2rem"
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.4rem" }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "50%", border: `2px solid ${activeStep === idx ? "var(--accent)" : "rgba(244,246,240,0.15)"}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.8rem", fontWeight: 800, color: activeStep === idx ? "var(--accent)" : "var(--muted)", fontFamily: "var(--font-heading)", transition: "all 0.5s ease", flexShrink: 0 }}>{step.id}</div>
+                  <h4 style={{ fontSize: "1rem", fontWeight: 700, fontFamily: "var(--font-heading)", color: activeStep === idx ? "var(--foreground)" : "var(--muted)", transition: "color 0.5s ease" }}>{step.title}</h4>
+                </div>
+                <p style={{ color: "var(--muted)", fontSize: "0.85rem", lineHeight: 1.5, opacity: activeStep === idx ? 1 : 0.5, transition: "opacity 0.5s ease", paddingLeft: "44px" }}>{step.desc}</p>
               </div>
-              <p style={{ color: "var(--muted)", fontSize: "0.85rem", lineHeight: 1.5, opacity: activeStep === idx ? 1 : 0.5, transition: "opacity 0.5s ease", paddingLeft: "44px" }}>{step.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
           <div style={{ marginTop: "0.5rem", paddingLeft: "4px", display: "flex", gap: "6px", alignItems: "center" }}>
             {[0, 1, 2, 3].map((i) => (
               <div key={i} style={{ width: activeStep === i ? "28px" : "8px", height: "6px", borderRadius: "3px", backgroundColor: activeStep === i ? "var(--accent)" : "rgba(244,246,240,0.15)", transition: "all 0.4s ease" }} />

@@ -108,5 +108,5 @@ html.lenis, html.lenis body {
 
 @media (max-width: 480px) {
   .mobile-cube { transform: scale(0.7) !important; }
-  .mobile-padding { padding: 4rem 5vw !important; }
+  .mobile-padding { padding: 2rem 5vw !important; }
 }

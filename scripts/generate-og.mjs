@@ -3,41 +3,38 @@ import fs from 'fs';
 import path from 'path';
 
 async function generateOG() {
-  const logoPath = 'public/lart-Logo3.png';
+  const logoPath = 'public/logo-transparent.png'; // Tamamen beyaz olan referans PNG dosyamız
   if (!fs.existsSync(logoPath)) {
      console.error('Logo not found');
      return;
   }
   
   try {
-    // 1- Mevcut saydam logonun alpha kanalını çıkar ve yeşil (#c0d734) yap
-    const metadata = await sharp(logoPath).metadata();
-    const width = metadata.width;
-    const height = metadata.height;
+    // Önce logomuzu 800x400 sınırlarına sığacak şekilde boyutlandırıyoruz
+    const logoBuffer = await sharp(logoPath)
+      .resize({ width: 800, height: 400, fit: 'inside', withoutEnlargement: true })
+      .png()
+      .toBuffer();
 
+    const logoMeta = await sharp(logoBuffer).metadata();
+
+    // Tam olarak logonun yeni boyutlarında düz yeşil bir kutu yaratıyoruz
     const solidAccent = await sharp({
-      create: { width, height, channels: 3, background: '#c0d734' }
-    }).raw().toBuffer();
+      create: { 
+        width: logoMeta.width, 
+        height: logoMeta.height, 
+        channels: 3, 
+        background: '#c0d734' 
+      }
+    }).png().toBuffer();
 
-    let alphaBuffer;
-    if (metadata.hasAlpha) {
-      alphaBuffer = await sharp(logoPath).extractChannel('alpha').raw().toBuffer();
-    } else {
-      console.error('No alpha channel found on logo!');
-      return;
-    }
+    // Logonun alfa kanalını (saydamlığını) bir maske (dest-in) olarak kullanıp yeşil kutuyu kesiyoruz
+    const tintedLogo = await sharp(solidAccent)
+      .composite([{ input: logoBuffer, blend: 'dest-in' }])
+      .png()
+      .toBuffer();
 
-    const coloredLogoBuffer = await sharp(solidAccent, {
-        raw: { width, height, channels: 3 }
-    })
-    .joinChannel(Buffer.from(alphaBuffer), {
-        raw: { width, height, channels: 1 }
-    })
-    .resize({ width: 600, height: 400, fit: 'inside', withoutEnlargement: true })
-    .png()
-    .toBuffer();
-
-    // 2- 1200x630 px boyutlarında karanlık marka renginde bir zemin oluştur (#0d120d)
+    // 1200x630 (Sosyal medya WhatsApp, Twitter vb. Open Graph standartı) siyah zemin (#0d120d)
     await sharp({
       create: {
         width: 1200,
@@ -47,14 +44,11 @@ async function generateOG() {
       }
     })
     .composite([
-      {
-        input: coloredLogoBuffer,
-        gravity: 'center'
-      }
+      { input: tintedLogo, gravity: 'center' }
     ])
     .toFile('public/og-image.png');
 
-    console.log('✅ Premium OG (Yepyeni sosyal medya önizleme) resmi oluşturuldu!');
+    console.log('✅ Premium OG (tamamı boyalı) resmi oluşturuldu!');
   } catch (e) {
     console.error(e);
   }
