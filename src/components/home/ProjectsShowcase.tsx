@@ -40,7 +40,7 @@ export default function ProjectsShowcase({
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
-      setCube(window.innerWidth < 480 ? window.innerWidth * 0.55 : 380);
+      setCube(window.innerWidth < 480 ? Math.min(window.innerWidth * 0.75, 300) : 380);
     };
     
     if (typeof window !== "undefined") {
@@ -208,7 +208,7 @@ export default function ProjectsShowcase({
       </div>
 
       {/* PROJECTS CONTENT */}
-      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: isMobile ? "flex-start" : "center", justifyContent: "center", padding: isMobile ? "12vh 6vw 0" : "0 6vw", gap: "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
+      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: isMobile ? "flex-start" : "center", padding: isMobile ? "10vh 6vw 0" : "0 6vw", gap: isMobile ? "3vw" : "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
         {/* 3D Küp */}
         <div className="mobile-cube" style={{ width: `${CUBE}px`, height: `${CUBE}px`, perspective: "1200px", flexShrink: 0, position: "relative" }}>
           <div ref={cubeRef} style={{ width: `${CUBE}px`, height: `${CUBE}px`, position: "absolute", inset: 0, transformStyle: "preserve-3d", pointerEvents: "none" }}>
@@ -298,7 +298,7 @@ export default function ProjectsShowcase({
               Her Proje Bir<br /><span style={{ color: "var(--accent)" }}>Yolculuktur.</span>
             </h2>
           </div>
-          <div style={{ position: "relative", minHeight: isMobile ? "140px" : "auto" }}>
+          <div style={{ position: "relative", minHeight: isMobile ? "180px" : "auto" }}>
             {processSteps.map((step, idx) => (
               <div key={step.id} style={{
                 position: isMobile ? "absolute" : "relative",

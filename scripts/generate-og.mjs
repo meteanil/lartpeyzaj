@@ -3,38 +3,48 @@ import fs from 'fs';
 import path from 'path';
 
 async function generateOG() {
-  const logoPath = 'public/logo-transparent.png'; // Tamamen beyaz olan referans PNG dosyamız
+  const logoPath = 'public/lart-Logo3.png'; // Kesinlikle şeffaf PNG olan dosyayı geri seçiyoruz
   if (!fs.existsSync(logoPath)) {
      console.error('Logo not found');
      return;
   }
   
   try {
-    // Önce logomuzu 800x400 sınırlarına sığacak şekilde boyutlandırıyoruz
+    // 1- Önce logomuzu 800x400 sınırlarına sığacak şekilde boyutlandırıyoruz (maske boyutumuz bu olacak)
     const logoBuffer = await sharp(logoPath)
       .resize({ width: 800, height: 400, fit: 'inside', withoutEnlargement: true })
       .png()
       .toBuffer();
 
     const logoMeta = await sharp(logoBuffer).metadata();
+    const width = logoMeta.width;
+    const height = logoMeta.height;
 
-    // Tam olarak logonun yeni boyutlarında düz yeşil bir kutu yaratıyoruz
+    // 2- Tam olarak logonun yeni boyutlarında düz RGB yeşil bir kutu yaratıyoruz
     const solidAccent = await sharp({
       create: { 
-        width: logoMeta.width, 
-        height: logoMeta.height, 
+        width, 
+        height, 
         channels: 3, 
         background: '#c0d734' 
       }
-    }).png().toBuffer();
+    }).raw().toBuffer();
 
-    // Logonun alfa kanalını (saydamlığını) bir maske (dest-in) olarak kullanıp yeşil kutuyu kesiyoruz
-    const tintedLogo = await sharp(solidAccent)
-      .composite([{ input: logoBuffer, blend: 'dest-in' }])
-      .png()
-      .toBuffer();
+    // 3- Boyutlandırılmış logodan saydamlık (alpha) kanalını raw buffer olarak tek başına çekiyoruz
+    const alphaBuffer = await sharp(logoBuffer).extractChannel('alpha').raw().toBuffer();
 
-    // 1200x630 (Sosyal medya WhatsApp, Twitter vb. Open Graph standartı) siyah zemin (#0d120d)
+    // 4- Kusursuz maskeleme: RGB yeşil kutumuza, çektiğimiz Alpha kanalını 4. kanal (transparency) olarak ekliyoruz
+    // Bu sayede solid kutumuz sadece orijinal logodaki piksellerin şeklinde var olmuş oluyor. Siyah blok hatası MÜMKÜN DEĞİL.
+    const tintedLogo = await sharp(solidAccent, {
+        raw: { width, height, channels: 3 }
+    })
+    .joinChannel(Buffer.from(alphaBuffer), {
+        raw: { width, height, channels: 1 }
+    })
+    .png()
+    .toBuffer();
+
+    // 5- Arka plana o çok istenen marka koyu zeminini atıp 1200x630 (OG) ölçülerine merkezliyoruz
     await sharp({
       create: {
         width: 1200,
@@ -48,7 +58,7 @@ async function generateOG() {
     ])
     .toFile('public/og-image.png');
 
-    console.log('✅ Premium OG (tamamı boyalı) resmi oluşturuldu!');
+    console.log('✅ Premium OG (Raw Alpha Extraction - 100% Guaranteed) oluşturuldu!');
   } catch (e) {
     console.error(e);
   }
