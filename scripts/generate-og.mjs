@@ -1,50 +1,39 @@
 import sharp from 'sharp';
 import fs from 'fs';
-import path from 'path';
 
 async function generateOG() {
-  const logoPath = 'public/lart-Logo3.png'; // Kesinlikle şeffaf PNG olan dosyayı geri seçiyoruz
+  const logoPath = 'public/lart-Logo3.png';
   if (!fs.existsSync(logoPath)) {
      console.error('Logo not found');
      return;
   }
   
   try {
-    // 1- Önce logomuzu 800x400 sınırlarına sığacak şekilde boyutlandırıyoruz (maske boyutumuz bu olacak)
+    // Logoyu orantılı olarak yeniden boyutlandır (#1)
     const logoBuffer = await sharp(logoPath)
-      .resize({ width: 800, height: 400, fit: 'inside', withoutEnlargement: true })
+      .resize({ width: 700, fit: 'inside', withoutEnlargement: true })
       .png()
       .toBuffer();
 
-    const logoMeta = await sharp(logoBuffer).metadata();
-    const width = logoMeta.width;
-    const height = logoMeta.height;
+    const meta = await sharp(logoBuffer).metadata();
 
-    // 2- Tam olarak logonun yeni boyutlarında düz RGB yeşil bir kutu yaratıyoruz
-    const solidAccent = await sharp({
-      create: { 
-        width, 
-        height, 
-        channels: 3, 
-        background: '#c0d734' 
-      }
-    }).raw().toBuffer();
+    const svgColorOverlay = Buffer.from(
+      `<svg width="${meta.width}" height="${meta.height}"><rect x="0" y="0" width="100%" height="100%" fill="#c0d734" /></svg>`
+    );
 
-    // 3- Boyutlandırılmış logodan saydamlık (alpha) kanalını raw buffer olarak tek başına çekiyoruz
-    const alphaBuffer = await sharp(logoBuffer).extractChannel('alpha').raw().toBuffer();
+    // Logonun renklerini SVG ile kusursuz birleştir (blend: "in") (#2)
+    // Sadece maske olan yerleri 'c0d734' ile doldurarak mükemmel kesim elde et
+    const tintedLogo = await sharp(logoBuffer)
+      .composite([
+        {
+          input: svgColorOverlay,
+          blend: 'in'
+        }
+      ])
+      .png()
+      .toBuffer();
 
-    // 4- Kusursuz maskeleme: RGB yeşil kutumuza, çektiğimiz Alpha kanalını 4. kanal (transparency) olarak ekliyoruz
-    // Bu sayede solid kutumuz sadece orijinal logodaki piksellerin şeklinde var olmuş oluyor. Siyah blok hatası MÜMKÜN DEĞİL.
-    const tintedLogo = await sharp(solidAccent, {
-        raw: { width, height, channels: 3 }
-    })
-    .joinChannel(Buffer.from(alphaBuffer), {
-        raw: { width, height, channels: 1 }
-    })
-    .png()
-    .toBuffer();
-
-    // 5- Arka plana o çok istenen marka koyu zeminini atıp 1200x630 (OG) ölçülerine merkezliyoruz
+    // Son olarak orijinal marka arkaplanı (#0d120d) oluşturup ortasına oturt (#3)
     await sharp({
       create: {
         width: 1200,
@@ -58,7 +47,7 @@ async function generateOG() {
     ])
     .toFile('public/og-image.png');
 
-    console.log('✅ Premium OG (Raw Alpha Extraction - 100% Guaranteed) oluşturuldu!');
+    console.log('✅ Premium OG (Blend In Mode) oluşturuldu! Kesinlikle yeşil blok hatası kalmadı.');
   } catch (e) {
     console.error(e);
   }

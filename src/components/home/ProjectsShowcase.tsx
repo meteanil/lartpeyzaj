@@ -208,7 +208,7 @@ export default function ProjectsShowcase({
       </div>
 
       {/* PROJECTS CONTENT */}
-      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: isMobile ? "flex-start" : "center", padding: isMobile ? "16vh 4vw 0" : "0 6vw", gap: isMobile ? "4vw" : "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
+      <div ref={contentRef} className="mobile-col mobile-padding" style={{ width: "100%", height: "100%", position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 6vw", gap: isMobile ? "3vw" : "5vw", opacity: 0, zIndex: 10, pointerEvents: "none" }}>
         {/* 3D Küp */}
         <div className="mobile-cube" style={{ width: `${CUBE}px`, height: `${CUBE}px`, perspective: "1200px", flexShrink: 0, position: "relative" }}>
           <div ref={cubeRef} style={{ width: `${CUBE}px`, height: `${CUBE}px`, position: "absolute", inset: 0, transformStyle: "preserve-3d", pointerEvents: "none" }}>
@@ -298,11 +298,10 @@ export default function ProjectsShowcase({
               Her Proje Bir<br /><span style={{ color: "var(--accent)" }}>Yolculuktur.</span>
             </h2>
           </div>
-          <div style={{ position: "relative", minHeight: isMobile ? "220px" : "auto", width: "100%", maxWidth: isMobile ? "400px" : "100%" }}>
+          <div style={{ display: "grid", width: "100%", maxWidth: isMobile ? "400px" : "100%" }}>
             {processSteps.map((step, idx) => (
               <div key={step.id} style={{
-                position: isMobile ? "absolute" : "relative",
-                top: 0, left: 0, width: "100%",
+                gridArea: isMobile ? "1 / 1" : "auto",
                 padding: "1.2rem 1.5rem", borderRadius: "12px",
                 border: `1px solid ${activeStep === idx ? "rgba(192,215,52,0.4)" : "rgba(244,246,240,0.06)"}`,
                 backgroundColor: activeStep === idx ? "rgba(192,215,52,0.08)" : "rgba(244,246,240,0.02)",
