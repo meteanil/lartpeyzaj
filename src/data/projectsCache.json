@@ -1,0 +1,360 @@
+{
+  "projects": [
+    {
+      "id": "01",
+      "title": "Arslantürk İnşaat Villa",
+      "slug": "arslanturk-insaat-villa",
+      "category": "Peyzaj Projesi",
+      "description": "Arslantürk İnşaat Villa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Arslant%C3%BCrk%20%C4%B0n%C5%9Faat%20Villa/oertybdsnfuhuyesfs.webp",
+      "gallery": [
+        "/Projeler_/Arslant%C3%BCrk%20%C4%B0n%C5%9Faat%20Villa/sdyasagdyuasa.webp",
+        "/Projeler_/Arslant%C3%BCrk%20%C4%B0n%C5%9Faat%20Villa/tsatdgasbfas.webp",
+        "/Projeler_/Arslant%C3%BCrk%20%C4%B0n%C5%9Faat%20Villa/wqewqtyygsaydas.webp",
+        "/Projeler_/Arslant%C3%BCrk%20%C4%B0n%C5%9Faat%20Villa/ysadyasfas.webp"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Bayır Sanayi Sitesi",
+      "slug": "bayir-sanayi-sitesi",
+      "category": "Peyzaj Projesi",
+      "description": "Bayır Sanayi Sitesi projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Bay%C4%B1r%20Sanayi%20Sitesi/msdfhsdvfgeuyabsfa.webp",
+      "gallery": [
+        "/Projeler_/Bay%C4%B1r%20Sanayi%20Sitesi/retwbgfdsuytfa.webp",
+        "/Projeler_/Bay%C4%B1r%20Sanayi%20Sitesi/trteywrıebfsdfa.webp",
+        "/Projeler_/Bay%C4%B1r%20Sanayi%20Sitesi/ufdhuguyıdfga.webp",
+        "/Projeler_/Bay%C4%B1r%20Sanayi%20Sitesi/ydfghbfuydga.webp"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Bülent Aksoy İş Yeri",
+      "slug": "bulent-aksoy-is-yeri",
+      "category": "Peyzaj Projesi",
+      "description": "Bülent Aksoy İş Yeri projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/B%C3%BClent%20Aksoy%20%C4%B0%C5%9F%20Yeri/bsaygbadyada.webp",
+      "gallery": [
+        "/Projeler_/B%C3%BClent%20Aksoy%20%C4%B0%C5%9F%20Yeri/hsadbsauyfbausf.webp",
+        "/Projeler_/B%C3%BClent%20Aksoy%20%C4%B0%C5%9F%20Yeri/hudfbıugyhfdopya.webp",
+        "/Projeler_/B%C3%BClent%20Aksoy%20%C4%B0%C5%9F%20Yeri/lrydxbfhgvga.webp",
+        "/Projeler_/B%C3%BClent%20Aksoy%20%C4%B0%C5%9F%20Yeri/psdgybdusbyagd.webp"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Ekrem Bey Konut Projesi",
+      "slug": "ekrem-bey-konut-projesi",
+      "category": "Peyzaj Projesi",
+      "description": "Ekrem Bey Konut Projesi projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Ekrem%20Bey%20Konut%20Projesi/eredfsgdfg.webp",
+      "gallery": [
+        "/Projeler_/Ekrem%20Bey%20Konut%20Projesi/lsdsahgjdaspya.webp",
+        "/Projeler_/Ekrem%20Bey%20Konut%20Projesi/pofdgodfjgdsf.webp",
+        "/Projeler_/Ekrem%20Bey%20Konut%20Projesi/retregfdgdfgya.webp",
+        "/Projeler_/Ekrem%20Bey%20Konut%20Projesi/udsufhdusıfa.webp"
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Fettah Öğdüm Villa",
+      "slug": "fettah-ogdum-villa",
+      "category": "Peyzaj Projesi",
+      "description": "Fettah Öğdüm Villa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Fettah%20%C3%96%C4%9Fd%C3%BCm%20Villa/cvgdhasvjhagvdbjhadskopya.webp",
+      "gallery": [
+        "/Projeler_/Fettah%20%C3%96%C4%9Fd%C3%BCm%20Villa/eytgdsbugfdhbdfpya.webp",
+        "/Projeler_/Fettah%20%C3%96%C4%9Fd%C3%BCm%20Villa/fasvdfygasvyuadskopya.webp",
+        "/Projeler_/Fettah%20%C3%96%C4%9Fd%C3%BCm%20Villa/gsdvgvsdhbsdksda.webp",
+        "/Projeler_/Fettah%20%C3%96%C4%9Fd%C3%BCm%20Villa/mfdnuhbdfıufsdya.webp"
+      ]
+    },
+    {
+      "id": "06",
+      "title": "Halka Sitesi",
+      "slug": "halka-sitesi",
+      "category": "Peyzaj Projesi",
+      "description": "Halka Sitesi projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Halka%20Sitesi/fdsıoewuırısdfokopya.webp",
+      "gallery": [
+        "/Projeler_/Halka%20Sitesi/kdsfbqweıdsbasokopya.webp",
+        "/Projeler_/Halka%20Sitesi/lfdsnayprtynasyuokopya.webp",
+        "/Projeler_/Halka%20Sitesi/pdsfuıewnfduıokopya.webp",
+        "/Projeler_/Halka%20Sitesi/utrnwefıfdsokopya.webp"
+      ]
+    },
+    {
+      "id": "07",
+      "title": "Harmanık villa",
+      "slug": "harmanik-villa",
+      "category": "Peyzaj Projesi",
+      "description": "Harmanık villa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Harman%C4%B1k%20villa/dsadghvasıdbasoufa.webp",
+      "gallery": [
+        "/Projeler_/Harman%C4%B1k%20villa/fsayhfbasuhfbasya.webp",
+        "/Projeler_/Harman%C4%B1k%20villa/gduasygdbaısuydbason.webp",
+        "/Projeler_/Harman%C4%B1k%20villa/pasdıasohfuıasfya.webp",
+        "/Projeler_/Harman%C4%B1k%20villa/rasdftvuasydbıua.webp"
+      ]
+    },
+    {
+      "id": "08",
+      "title": "Hilton Garden Inn-Konya",
+      "slug": "hilton-garden-inn-konya",
+      "category": "Peyzaj Projesi",
+      "description": "Hilton Garden Inn-Konya projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Hilton%20Garden%20Inn-Konya/__12---Foto kopya.webp",
+      "gallery": [
+        "/Projeler_/Hilton%20Garden%20Inn-Konya/dfsokopya.webp",
+        "/Projeler_/Hilton%20Garden%20Inn-Konya/kjhgkopya.webp",
+        "/Projeler_/Hilton%20Garden%20Inn-Konya/sskopya.webp",
+        "/Projeler_/Hilton%20Garden%20Inn-Konya/ssokopya.webp"
+      ]
+    },
+    {
+      "id": "09",
+      "title": "Hilton Garden Inn-Şanlıurfa",
+      "slug": "hilton-garden-inn-sanliurfa",
+      "category": "Peyzaj Projesi",
+      "description": "Hilton Garden Inn-Şanlıurfa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Hilton%20Garden%20Inn-%C5%9Eanl%C4%B1urfa/ıopokopya.webp",
+      "gallery": [
+        "/Projeler_/Hilton%20Garden%20Inn-%C5%9Eanl%C4%B1urfa/jhghtokopya.webp",
+        "/Projeler_/Hilton%20Garden%20Inn-%C5%9Eanl%C4%B1urfa/rteokopya.webp",
+        "/Projeler_/Hilton%20Garden%20Inn-%C5%9Eanl%C4%B1urfa/rtyokopya.webp",
+        "/Projeler_/Hilton%20Garden%20Inn-%C5%9Eanl%C4%B1urfa/sdatokopya.webp"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Kamil Ertuğrul Bahçe Evi",
+      "slug": "kamil-ertugrul-bahce-evi",
+      "category": "Peyzaj Projesi",
+      "description": "Kamil Ertuğrul Bahçe Evi projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Kamil%20Ertu%C4%9Frul%20Bah%C3%A7e%20Evi/_bdhusabfyuasbfhaya.webp",
+      "gallery": [
+        "/Projeler_/Kamil%20Ertu%C4%9Frul%20Bah%C3%A7e%20Evi/dhsayufhbasuhfasjfa.webp",
+        "/Projeler_/Kamil%20Ertu%C4%9Frul%20Bah%C3%A7e%20Evi/ldasjhbfduashbfasuf.webp",
+        "/Projeler_/Kamil%20Ertu%C4%9Frul%20Bah%C3%A7e%20Evi/sdgsabghujengdgyasfdya.webp",
+        "/Projeler_/Kamil%20Ertu%C4%9Frul%20Bah%C3%A7e%20Evi/zhadbsuhasbdfuashfbaopya.webp"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Kaysan Mimarlık Lalebahçe Villa",
+      "slug": "kaysan-mimarlik-lalebahce-villa",
+      "category": "Peyzaj Projesi",
+      "description": "Kaysan Mimarlık Lalebahçe Villa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Lalebah%C3%A7e%20Villa/csabghfdbasfnasjkopya.webp",
+      "gallery": [
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Lalebah%C3%A7e%20Villa/gfausyhfbasnfjıakopya.webp",
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Lalebah%C3%A7e%20Villa/hsagfhuasbfjasopya.webp",
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Lalebah%C3%A7e%20Villa/lkaslfjhsahfyouasfnya.webp",
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Lalebah%C3%A7e%20Villa/osaduhbasuhfdasnfya.webp"
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Kaysan Mimarlık Selçuklu Villa",
+      "slug": "kaysan-mimarlik-selcuklu-villa",
+      "category": "Peyzaj Projesi",
+      "description": "Kaysan Mimarlık Selçuklu Villa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Sel%C3%A7uklu%20Villa/asdgsahfbajnsdfasfya.webp",
+      "gallery": [
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Sel%C3%A7uklu%20Villa/psafhjasdıobfapya.webp",
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Sel%C3%A7uklu%20Villa/raghsdbasghdbasdhbfasa.webp",
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Sel%C3%A7uklu%20Villa/tsadgsaguhfbnasjfopya.webp",
+        "/Projeler_/Kaysan%20Mimarl%C4%B1k%20Sel%C3%A7uklu%20Villa/ysdbfyudshbfhdsnjfsdya.webp"
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Kerem Nükte 2. Etap",
+      "slug": "kerem-nukte-2-etap",
+      "category": "Peyzaj Projesi",
+      "description": "Kerem Nükte 2. Etap projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Kerem%20N%C3%BCkte%202.%20Etap/egasdvsavdbastyufbashfopya.webp",
+      "gallery": [
+        "/Projeler_/Kerem%20N%C3%BCkte%202.%20Etap/kdsjfkhbsdufbdsufhbasdfya.webp",
+        "/Projeler_/Kerem%20N%C3%BCkte%202.%20Etap/mdsahdbasghbdahsdpya.webp",
+        "/Projeler_/Kerem%20N%C3%BCkte%202.%20Etap/tdhsfbdshfbsdyubfsda.webp",
+        "/Projeler_/Kerem%20N%C3%BCkte%202.%20Etap/vdgasvdhgsavdsuahdbasya.webp"
+      ]
+    },
+    {
+      "id": "14",
+      "title": "Mehmet Horasan Villası",
+      "slug": "mehmet-horasan-villasi",
+      "category": "Peyzaj Projesi",
+      "description": "Mehmet Horasan Villası projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Mehmet%20Horasan%20Villas%C4%B1/asdhafuasokopya.webp",
+      "gallery": [
+        "/Projeler_/Mehmet%20Horasan%20Villas%C4%B1/asdughasdasokopya.webp",
+        "/Projeler_/Mehmet%20Horasan%20Villas%C4%B1/ıoerwndyuasnokopya.webp",
+        "/Projeler_/Mehmet%20Horasan%20Villas%C4%B1/uetrqyuasdhokopya.webp",
+        "/Projeler_/Mehmet%20Horasan%20Villas%C4%B1/yertnsapğfhokopya.webp"
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Metin Özel Bahçe",
+      "slug": "metin-ozel-bahce",
+      "category": "Peyzaj Projesi",
+      "description": "Metin Özel Bahçe projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Metin%20%C3%96zel%20Bah%C3%A7e/asdgsafhgdsfsdfsdkopya.webp",
+      "gallery": [
+        "/Projeler_/Metin%20%C3%96zel%20Bah%C3%A7e/chdbashdbasuhfbdaspya.webp",
+        "/Projeler_/Metin%20%C3%96zel%20Bah%C3%A7e/ddshfghsdjfghjsdfa.webp",
+        "/Projeler_/Metin%20%C3%96zel%20Bah%C3%A7e/ohdsfghjdsgfhushdadpya.webp",
+        "/Projeler_/Metin%20%C3%96zel%20Bah%C3%A7e/thsdbashjfsajfbasjfbasa.webp"
+      ]
+    },
+    {
+      "id": "16",
+      "title": "Mevlüt Ayaz Villası",
+      "slug": "mevlut-ayaz-villasi",
+      "category": "Peyzaj Projesi",
+      "description": "Mevlüt Ayaz Villası projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Mevl%C3%BCt%20Ayaz%20Villas%C4%B1/ewrasjdkhaskfokopya.webp",
+      "gallery": [
+        "/Projeler_/Mevl%C3%BCt%20Ayaz%20Villas%C4%B1/ıteynbasduyafhafkopya.webp",
+        "/Projeler_/Mevl%C3%BCt%20Ayaz%20Villas%C4%B1/oısdguıhudıasfakopya.webp",
+        "/Projeler_/Mevl%C3%BCt%20Ayaz%20Villas%C4%B1/yasdgyasdaokopya.webp",
+        "/Projeler_/Mevl%C3%BCt%20Ayaz%20Villas%C4%B1/ysadvyuasuvfaskopya.webp"
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Necati Bey Villası",
+      "slug": "necati-bey-villasi",
+      "category": "Peyzaj Projesi",
+      "description": "Necati Bey Villası projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Necati%20Bey%20Villas%C4%B1/hjgeonfsdokopya.webp",
+      "gallery": [
+        "/Projeler_/Necati%20Bey%20Villas%C4%B1/jhasbptokopya.webp",
+        "/Projeler_/Necati%20Bey%20Villas%C4%B1/lenbtyostokopya.webp",
+        "/Projeler_/Necati%20Bey%20Villas%C4%B1/pobdkrwegokopya.webp",
+        "/Projeler_/Necati%20Bey%20Villas%C4%B1/tyujdsfokopya.webp"
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Sait Dikici Villası",
+      "slug": "sait-dikici-villasi",
+      "category": "Peyzaj Projesi",
+      "description": "Sait Dikici Villası projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/Sait%20Dikici%20Villas%C4%B1/asdfokopya.webp",
+      "gallery": [
+        "/Projeler_/Sait%20Dikici%20Villas%C4%B1/bgfdhokopya.webp",
+        "/Projeler_/Sait%20Dikici%20Villas%C4%B1/ghfqblttokopya.webp",
+        "/Projeler_/Sait%20Dikici%20Villas%C4%B1/kjhwerfokopya.webp",
+        "/Projeler_/Sait%20Dikici%20Villas%C4%B1/oıutwerokopya.webp"
+      ]
+    },
+    {
+      "id": "19",
+      "title": "İbrahim Göger Villa",
+      "slug": "ibrahim-goger-villa",
+      "category": "Peyzaj Projesi",
+      "description": "İbrahim Göger Villa projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/%C4%B0brahim%20G%C3%B6ger%20Villa/asudgvbyasghfbhuasfpya.webp",
+      "gallery": [
+        "/Projeler_/%C4%B0brahim%20G%C3%B6ger%20Villa/csahbdfasuhfbasyufbaush.webp",
+        "/Projeler_/%C4%B0brahim%20G%C3%B6ger%20Villa/eastgveyasgubdfhaspya.webp",
+        "/Projeler_/%C4%B0brahim%20G%C3%B6ger%20Villa/hdsfhgbdushfsdkopya.webp",
+        "/Projeler_/%C4%B0brahim%20G%C3%B6ger%20Villa/masdhuasbfjadasa.webp"
+      ]
+    },
+    {
+      "id": "20",
+      "title": "İsmail Batı Villası",
+      "slug": "ismail-bati-villasi",
+      "category": "Peyzaj Projesi",
+      "description": "İsmail Batı Villası projesi, doğayla kusursuz bir uyum içerisinde fonksiyonel ve nefes kesici konsept peyzaj mimarisiyle L'art imzası taşıyor.",
+      "coverImage": "/Projeler_/%C4%B0smail%20Bat%C4%B1%20Villas%C4%B1/dfsuıqerbfuydokopya.webp",
+      "gallery": [
+        "/Projeler_/%C4%B0smail%20Bat%C4%B1%20Villas%C4%B1/klfguıwnsduıkopya.webp",
+        "/Projeler_/%C4%B0smail%20Bat%C4%B1%20Villas%C4%B1/ndfponghdsıuokopya.webp",
+        "/Projeler_/%C4%B0smail%20Bat%C4%B1%20Villas%C4%B1/nsadyugfjasdıuokopya.webp",
+        "/Projeler_/%C4%B0smail%20Bat%C4%B1%20Villas%C4%B1/sdfpqwrnfuyasdkjnadsfıuokopya.webp"
+      ]
+    }
+  ],
+  "applications": [
+    {
+      "id": "01",
+      "title": "Kaysan Mimarlık",
+      "slug": "uyg-kaysan-mimarlik",
+      "category": "Peyzaj Uygulaması",
+      "description": "Kaysan Mimarlık uygulama projesi, L'art Peyzaj Mimarlık tarafından sahada hayata geçirilmiş, doğayla bütünleşik kusursuz bir peyzaj uygulamasıdır.",
+      "coverImage": "/Uygulamalar/Kaysan%20Mimarl%C4%B1k/kaysan1.webp",
+      "gallery": [
+        "/Uygulamalar/Kaysan%20Mimarl%C4%B1k/kaysan2.webp",
+        "/Uygulamalar/Kaysan%20Mimarl%C4%B1k/kaysan5.webp",
+        "/Uygulamalar/Kaysan%20Mimarl%C4%B1k/kaysan6.webp",
+        "/Uygulamalar/Kaysan%20Mimarl%C4%B1k/kaysan7.webp",
+        "/Uygulamalar/Kaysan%20Mimarl%C4%B1k/kaysan8.webp"
+      ]
+    },
+    {
+      "id": "02",
+      "title": "Kerem Nükte Gyo Yeniyol Ofis",
+      "slug": "uyg-kerem-nukte-gyo-yeniyol-ofis",
+      "category": "Peyzaj Uygulaması",
+      "description": "Kerem Nükte Gyo Yeniyol Ofis uygulama projesi, L'art Peyzaj Mimarlık tarafından sahada hayata geçirilmiş, doğayla bütünleşik kusursuz bir peyzaj uygulamasıdır.",
+      "coverImage": "/Uygulamalar/Kerem%20N%C3%BCkte%20Gyo%20Yeniyol%20Ofis/aaashdsadasa.webp",
+      "gallery": [
+        "/Uygulamalar/Kerem%20N%C3%BCkte%20Gyo%20Yeniyol%20Ofis/bgdyasdgyuasda.webp",
+        "/Uygulamalar/Kerem%20N%C3%BCkte%20Gyo%20Yeniyol%20Ofis/ehasdjasbjhdas.webp",
+        "/Uygulamalar/Kerem%20N%C3%BCkte%20Gyo%20Yeniyol%20Ofis/rhjksahdkjasa.webp",
+        "/Uygulamalar/Kerem%20N%C3%BCkte%20Gyo%20Yeniyol%20Ofis/yashdasdhjasa.webp"
+      ]
+    },
+    {
+      "id": "03",
+      "title": "Mehmet Altıntaş Villa",
+      "slug": "uyg-mehmet-altintas-villa",
+      "category": "Peyzaj Uygulaması",
+      "description": "Mehmet Altıntaş Villa uygulama projesi, L'art Peyzaj Mimarlık tarafından sahada hayata geçirilmiş, doğayla bütünleşik kusursuz bir peyzaj uygulamasıdır.",
+      "coverImage": "/Uygulamalar/Mehmet%20Alt%C4%B1nta%C5%9F%20Villa/hdshfsdyfdshfbsdıufsdpya.webp",
+      "gallery": [
+        "/Uygulamalar/Mehmet%20Alt%C4%B1nta%C5%9F%20Villa/osafjfıodshbsıfbsdfya.webp",
+        "/Uygulamalar/Mehmet%20Alt%C4%B1nta%C5%9F%20Villa/psadbashbfhajsfbasfa.webp",
+        "/Uygulamalar/Mehmet%20Alt%C4%B1nta%C5%9F%20Villa/tasgbfhbasjfasnf.webp",
+        "/Uygulamalar/Mehmet%20Alt%C4%B1nta%C5%9F%20Villa/ysagdyuashbfashfasa.webp"
+      ]
+    },
+    {
+      "id": "04",
+      "title": "Necati Bey Villa",
+      "slug": "uyg-necati-bey-villa",
+      "category": "Peyzaj Uygulaması",
+      "description": "Necati Bey Villa uygulama projesi, L'art Peyzaj Mimarlık tarafından sahada hayata geçirilmiş, doğayla bütünleşik kusursuz bir peyzaj uygulamasıdır.",
+      "coverImage": "/Uygulamalar/Necati%20Bey%20Villa/necati1.webp",
+      "gallery": [
+        "/Uygulamalar/Necati%20Bey%20Villa/necati2.webp",
+        "/Uygulamalar/Necati%20Bey%20Villa/necati3.webp",
+        "/Uygulamalar/Necati%20Bey%20Villa/necati4.webp",
+        "/Uygulamalar/Necati%20Bey%20Villa/necati5.webp",
+        "/Uygulamalar/Necati%20Bey%20Villa/necati6.webp"
+      ]
+    },
+    {
+      "id": "05",
+      "title": "Sait Dikici Villa",
+      "slug": "uyg-sait-dikici-villa",
+      "category": "Peyzaj Uygulaması",
+      "description": "Sait Dikici Villa uygulama projesi, L'art Peyzaj Mimarlık tarafından sahada hayata geçirilmiş, doğayla bütünleşik kusursuz bir peyzaj uygulamasıdır.",
+      "coverImage": "/Uygulamalar/Sait%20Dikici%20Villa/sait1.webp",
+      "gallery": [
+        "/Uygulamalar/Sait%20Dikici%20Villa/sait2.webp",
+        "/Uygulamalar/Sait%20Dikici%20Villa/sait3.webp",
+        "/Uygulamalar/Sait%20Dikici%20Villa/sait4.webp",
+        "/Uygulamalar/Sait%20Dikici%20Villa/sait5.webp",
+        "/Uygulamalar/Sait%20Dikici%20Villa/sait6.webp",
+        "/Uygulamalar/Sait%20Dikici%20Villa/sait7.webp"
+      ]
+    }
+  ]
+}
