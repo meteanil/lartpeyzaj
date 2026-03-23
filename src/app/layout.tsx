@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ["/lart-Logo3.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/ufak_logo.png",
     apple: "/apple-touch-icon.png",
   },
 };
