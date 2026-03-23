@@ -19,8 +19,7 @@ const processSteps = [
   { id: "03", title: "Sürdürülebilirlik & Bakım", desc: "İlk günkü parıltıyı koruyacak bakım planları sunarız." },
 ];
 
-const CUBE = 380;
-const HALF = CUBE / 2;
+
 
 export default function ProjectsShowcase({
   preloaderDone,
@@ -34,6 +33,20 @@ export default function ProjectsShowcase({
   const cubeRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
+  const [CUBE, setCube] = useState(380);
+  const HALF = CUBE / 2;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCube(window.innerWidth < 480 ? window.innerWidth * 0.8 : 380);
+    };
+    
+    if (typeof window !== "undefined") {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   // Safe project access
   const defaultProjects: Project[] = [
@@ -140,7 +153,7 @@ export default function ProjectsShowcase({
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [preloaderDone]);
+  }, [preloaderDone, CUBE]);
 
   const face: React.CSSProperties = {
     position: "absolute",

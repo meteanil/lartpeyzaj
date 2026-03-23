@@ -173,7 +173,7 @@ export default function ProjectDetail({ project }: { project: any }) {
           <h3 style={{ fontSize: "2rem", fontFamily: "var(--font-heading)", fontWeight: 800, marginBottom: "3rem", color: "var(--foreground)", textAlign: "center" }}>
             Proje <span style={{ color: "var(--accent)", fontStyle: "italic" }}>Videoları.</span>
           </h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2rem" }}>
             {projectVideos[project.slug].map((videoUrl: string, index: number) => (
               <div
                 key={index}
