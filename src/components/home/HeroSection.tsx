@@ -8,7 +8,6 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
   const heroRef = useRef<HTMLDivElement>(null);
   const title1Ref = useRef<HTMLHeadingElement>(null);
   const title2Ref = useRef<HTMLHeadingElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
 
   const geoBoxRef = useRef<HTMLDivElement>(null);
   const geoBoxInnerRef = useRef<HTMLDivElement>(null);
@@ -21,7 +20,6 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
     gsap.set(heroRef.current, { visibility: "visible" });
     gsap.set(title1Ref.current, { yPercent: 100 });
     gsap.set(title2Ref.current, { yPercent: 100 });
-    gsap.set(descRef.current, { opacity: 0, y: 20 });
     
     // geoBox class bazlı responsive yönetildiği için sadece gereksiz scale ve translate komutunu varsayılan yaparız.
     if (geoBoxRef.current) {
@@ -33,7 +31,6 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
     heroTl
       .to(title1Ref.current, { yPercent: 0, duration: 1.2, ease: "power4.out", delay: 0.1 })
       .to(title2Ref.current, { yPercent: 0, duration: 1.2, ease: "power4.out" }, "-=0.9")
-      .to(descRef.current, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.5")
       .to(geoBoxRef.current, { opacity: 1, duration: 1.5, ease: "power2.out" }, "-=0.8");
 
     // Scroll Pin / Expand Animation
@@ -62,7 +59,7 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
         ease: "power2.inOut",
       })
       .fromTo(
-        [title1Ref.current, title2Ref.current, descRef.current],
+        [title1Ref.current, title2Ref.current],
         { opacity: 1, y: 0 },
         { opacity: 0, y: -60, duration: 0.5, stagger: 0.05, ease: "power2.in" },
         0
@@ -146,21 +143,6 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
               Tasarlıyoruz.
             </h1>
           </div>
-          <p
-            ref={descRef}
-            style={{
-              marginTop: "2rem",
-              maxWidth: "500px",
-              fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
-              opacity: 0,
-              lineHeight: 1.7,
-              color: "var(--muted)",
-            }}
-          >
-            2025 yılından bu yana Konya&apos;da, organik formları modern mimariyle
-            birleştiriyor, yaşam alanlarınıza nefes aldıran premium peyzaj
-            çözümleri sunuyoruz.
-          </p>
         </div>
 
         <div
