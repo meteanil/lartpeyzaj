@@ -1,11 +1,44 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [status, setStatus] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus("GÖNDERİLİYOR...");
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "1b21be87-68fc-4c52-93b1-99f069cfa05b");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setStatus("Mesajınız başarıyla iletildi! En kısa sürede dönüş yapacağız. ✨");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus("Bir hata oluştu. Lütfen doğrudan e-posta ile ulaşın.");
+      }
+    } catch (error) {
+      setStatus("Bağlantı hatası, lütfen tekrar deneyin.");
+    }
+    
+    setIsSubmitting(false);
+    setTimeout(() => setStatus(""), 8000);
+  };
   
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -94,11 +127,13 @@ export default function ContactSection() {
 
         {/* Right Side: Glassmorphism Functional Form */}
         <div className="contact-reveal" style={{ backgroundColor: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "32px", padding: "4rem 3rem", boxShadow: "0 30px 60px rgba(0,0,0,0.5)", backdropFilter: "blur(20px)" }}>
-          <form style={{ display: "flex", flexDirection: "column", gap: "2rem" }} onSubmit={(e) => e.preventDefault()}>
-            
+          <form style={{ display: "flex", flexDirection: "column", gap: "2rem" }} onSubmit={handleSubmit}>
+            <input type="hidden" name="subject" value="L'art Peyzaj - Yeni İletişim Formu Mesajı" />
+            <input type="hidden" name="from_name" value="L'art Peyzaj Web Sitesi" />
+
             <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
               <label style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem", fontWeight: 600, letterSpacing: "1px" }}>Ad Soyad</label>
-              <input type="text" placeholder="İsminizi girin" style={{ width: "100%", backgroundColor: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.2rem", color: "var(--foreground)", outline: "none", transition: "border-color 0.3s, background-color 0.3s" }} 
+              <input name="name" required type="text" placeholder="İsminizi girin" style={{ width: "100%", backgroundColor: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.2rem", color: "var(--foreground)", outline: "none", transition: "border-color 0.3s, background-color 0.3s" }} 
                 onFocus={(e) => { e.target.style.borderColor = "var(--accent)"; e.target.style.backgroundColor = "rgba(0,0,0,0.6)"; }} 
                 onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; e.target.style.backgroundColor = "rgba(0,0,0,0.4)"; }} 
               />
@@ -106,7 +141,7 @@ export default function ContactSection() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
               <label style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem", fontWeight: 600, letterSpacing: "1px" }}>E-Posta Adresiniz</label>
-              <input type="email" placeholder="ornek@sirket.com" style={{ width: "100%", backgroundColor: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.2rem", color: "var(--foreground)", outline: "none", transition: "border-color 0.3s, background-color 0.3s" }} 
+              <input name="email" required type="email" placeholder="ornek@sirket.com" style={{ width: "100%", backgroundColor: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.2rem", color: "var(--foreground)", outline: "none", transition: "border-color 0.3s, background-color 0.3s" }} 
                 onFocus={(e) => { e.target.style.borderColor = "var(--accent)"; e.target.style.backgroundColor = "rgba(0,0,0,0.6)"; }} 
                 onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; e.target.style.backgroundColor = "rgba(0,0,0,0.4)"; }} 
               />
@@ -114,17 +149,23 @@ export default function ContactSection() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
               <label style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem", fontWeight: 600, letterSpacing: "1px" }}>Proje Detayları</label>
-              <textarea placeholder="Hayalinizdeki projeden biraz bahsedin..." rows={4} style={{ width: "100%", backgroundColor: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.2rem", color: "var(--foreground)", outline: "none", resize: "none", transition: "border-color 0.3s, background-color 0.3s", fontFamily: "inherit" }} 
+              <textarea name="message" required placeholder="Hayalinizdeki projeden biraz bahsedin..." rows={4} style={{ width: "100%", backgroundColor: "rgba(0,0,0,0.4)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.2rem", color: "var(--foreground)", outline: "none", resize: "none", transition: "border-color 0.3s, background-color 0.3s", fontFamily: "inherit" }} 
                 onFocus={(e) => { e.target.style.borderColor = "var(--accent)"; e.target.style.backgroundColor = "rgba(0,0,0,0.6)"; }} 
                 onBlur={(e) => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; e.target.style.backgroundColor = "rgba(0,0,0,0.4)"; }} 
               />
             </div>
 
-            <button style={{ marginTop: "1rem", width: "100%", backgroundColor: "var(--accent)", color: "#000", fontWeight: 800, padding: "1.3rem", borderRadius: "12px", border: "none", cursor: "pointer", transition: "all 0.3s ease", fontSize: "1.1rem", textTransform: "uppercase", letterSpacing: "1px" }} 
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 15px 30px rgba(163,204,57,0.25)"; }} 
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }} 
+            {status && (
+              <div style={{ padding: "1rem", backgroundColor: status.includes("başarı") ? "rgba(163,204,57,0.1)" : "rgba(255,0,0,0.1)", color: status.includes("başarı") ? "var(--accent)" : "#ff4444", border: `1px solid ${status.includes("başarı") ? "rgba(163,204,57,0.3)" : "rgba(255,0,0,0.3)"}`, borderRadius: "8px", textAlign: "center", fontWeight: 600, fontSize: "0.95rem" }}>
+                {status}
+              </div>
+            )}
+
+            <button disabled={isSubmitting} type="submit" style={{ marginTop: "1rem", width: "100%", backgroundColor: "var(--accent)", color: "#000", fontWeight: 800, padding: "1.3rem", borderRadius: "12px", border: "none", cursor: isSubmitting ? "not-allowed" : "pointer", opacity: isSubmitting ? 0.7 : 1, transition: "all 0.3s ease", fontSize: "1.1rem", textTransform: "uppercase", letterSpacing: "1px" }} 
+              onMouseEnter={(e) => { if(!isSubmitting) { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 15px 30px rgba(163,204,57,0.25)"; } }} 
+              onMouseLeave={(e) => { if(!isSubmitting) { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; } }} 
             >
-              Mesajı İlet
+              {isSubmitting ? "MESAJ İLETİLİYOR..." : "MESAJI İLET"}
             </button>
             
           </form>
