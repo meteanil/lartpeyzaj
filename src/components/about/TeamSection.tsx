@@ -25,7 +25,7 @@ const team = [
   {
     id: 3,
     name: "Mehmet Ozan Aktürk",
-    role: "Peyzaj Mimarı & Tasarım Müdürü",
+    role: "Peyzaj Mimarı & Tasarımcı",
     desc: "7 yıllık tecrübesiyle yenilikçi peyzaj konseptlerine hayat veriyor. Tasarım sürecinin her aşamasında sanatsal yaklaşımıyla ekibe ilham kaynağı oluyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
     image: "/Ekip/ozan-akturk.webp"
