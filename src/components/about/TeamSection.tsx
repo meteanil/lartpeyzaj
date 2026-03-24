@@ -4,35 +4,9 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TeamMember } from "@/lib/projects";
 
-const team = [
-  {
-    id: 1,
-    name: "Mete Anıl Küçük",
-    role: "Kurucu & Peyzaj Mimarı",
-    desc: "7 yıllık tecrübesiyle L'art Peyzaj'ın vizyonunu şekillendiriyor. Modern ve sürdürülebilir tasarımların baş mimarı olarak doğaya estetik dokunuşlar katıyor.",
-    bg: "linear-gradient(to top, rgba(163,204,57,0.1), rgba(0,0,0,0.5))",
-    image: "/Ekip/mete-anil.webp"
-  },
-  {
-    id: 2,
-    name: "Berkan Koca",
-    role: "Kurucu & Peyzaj Mimarı",
-    desc: "7 yıllık saha ve tasarım tecrübesiyle projelerin kusursuz uygulanmasına liderlik ediyor. Estetik vizyonu, mühendislik disipliniyle harmanlıyor.",
-    bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
-    image: "/Ekip/berkan.webp"
-  },
-  {
-    id: 3,
-    name: "Mehmet Ozan Aktürk",
-    role: "Peyzaj Mimarı & Tasarımcı",
-    desc: "7 yıllık tecrübesiyle yenilikçi peyzaj konseptlerine hayat veriyor. Tasarım sürecinin her aşamasında sanatsal yaklaşımıyla ekibe ilham kaynağı oluyor.",
-    bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
-    image: "/Ekip/ozan-akturk.webp"
-  }
-];
-
-export default function TeamSection() {
+export default function TeamSection({ team }: { team: TeamMember[] }) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -69,7 +43,7 @@ export default function TeamSection() {
 
       <div style={{ maxWidth: "1600px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2.5rem" }}>
         
-        {team.map((member) => (
+        {team.map((member, index) => (
            <div 
              key={member.id} 
              className="team-card"
@@ -96,12 +70,12 @@ export default function TeamSection() {
              }}
            >
              {/* Profil Çerçevesi */}
-             <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: member.bg, marginBottom: "2rem", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
+             <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: index % 2 === 0 ? "linear-gradient(to top, rgba(163,204,57,0.1), rgba(0,0,0,0.5))" : "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))", marginBottom: "2rem", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
                 {member.image ? (
                   <Image src={member.image} alt={member.name} fill style={{ objectFit: "cover", objectPosition: "center center" }} unoptimized />
                 ) : (
                   <span style={{ fontSize: "2rem", fontWeight: 700, color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>
-                     {member.name.split(" ").map(n => n[0]).join("")}
+                     {member.name.split(" ").map((n: string) => n[0]).join("")}
                   </span>
                 )}
              </div>

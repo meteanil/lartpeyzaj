@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { SiteSettings } from "@/lib/projects";
+import { ContactPageSettings } from "@/lib/projects";
 
-export default function ContactInfoGrid({ settings }: { settings?: SiteSettings }) {
+export default function ContactInfoGrid({ contact }: { contact?: ContactPageSettings }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,27 +36,21 @@ export default function ContactInfoGrid({ settings }: { settings?: SiteSettings 
              <h3 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent)", marginBottom: "2rem", fontFamily: "var(--font-heading)" }}>Merkez Ofisimiz</h3>
              <p style={{ color: "var(--foreground)", fontSize: "1.3rem", fontWeight: 700, marginBottom: "1rem" }}>L'art Peyzaj Mimarlık</p>
              <p style={{ color: "var(--muted)", fontSize: "1.1rem", lineHeight: 1.7, marginBottom: "3rem" }}>
-                {settings?.contactAddress || "Nişantaş, İkra Sk. Nasip Sit. No:1/c B Blok, 42090 Selçuklu / Konya"}
+                {contact?.address || "Nişantaş, İkra Sk. Nasip Sit. No:1/c B Blok, 42090 Selçuklu / Konya"}
              </p>
-             <a href="https://maps.app.goo.gl/xDZ6jpDK7W6NJdpF6" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none", fontSize: "1rem", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", borderBottom: "2px solid var(--accent)", paddingBottom: "0.3rem" }}>Yol Tarifi Al</a>
+             <a href={contact?.mapLink || "https://maps.app.goo.gl/xDZ6jpDK7W6NJdpF6"} target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none", fontSize: "1rem", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", borderBottom: "2px solid var(--accent)", paddingBottom: "0.3rem" }}>Yol Tarifi Al</a>
           </div>
 
           {/* Çalışma Saatleri Kartı */}
           <div className="contact-grid-item" style={{ backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "32px", padding: "4rem 3rem", transition: "transform 0.4s, border-color 0.4s", cursor: "pointer" }} onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-10px)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }} onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; }}>
              <h3 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent)", marginBottom: "2.5rem", fontFamily: "var(--font-heading)" }}>Çalışma Saatleri</h3>
              
-             <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "1.2rem", marginBottom: "1.2rem" }}>
-               <span style={{ color: "var(--muted)", fontSize: "1.1rem" }}>Pzt - Cuma</span>
-               <span style={{ color: "var(--foreground)", fontWeight: 700, fontSize: "1.1rem" }}>09:00 — 18:30</span>
-             </div>
-             <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "1.2rem", marginBottom: "1.2rem" }}>
-               <span style={{ color: "var(--muted)", fontSize: "1.1rem" }}>Cumartesi</span>
-               <span style={{ color: "var(--foreground)", fontWeight: 700, fontSize: "1.1rem" }}>09:00 — 14:00</span>
-             </div>
-             <div style={{ display: "flex", justifyContent: "space-between" }}>
-               <span style={{ color: "var(--muted)", fontSize: "1.1rem" }}>Pazar</span>
-               <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "1.1rem" }}>Kapalı</span>
-             </div>
+             {contact?.workingHours?.map((wh, idx) => (
+                <div key={idx} style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "1.2rem", marginBottom: "1.2rem" }}>
+                  <span style={{ color: "var(--muted)", fontSize: "1.1rem" }}>{wh.days}</span>
+                  <span style={{ color: wh.hours.toLowerCase().includes("kapalı") ? "var(--accent)" : "var(--foreground)", fontWeight: 700, fontSize: "1.1rem" }}>{wh.hours}</span>
+                </div>
+             ))}
           </div>
 
           {/* Aksiyon Çağrısı (Call to Action) */}
@@ -65,8 +59,8 @@ export default function ContactInfoGrid({ settings }: { settings?: SiteSettings 
              <p style={{ color: "rgba(0,0,0,0.7)", fontSize: "1.15rem", marginBottom: "2.5rem", fontWeight: 500, lineHeight: 1.6 }}>
                Projeleriniz hakkında detaylı görüşmek veya arazinizde keşif planlamak için doğrudan merkez ofisimizi arayabilirsiniz.
              </p>
-             <a href={`tel:${settings?.contactPhone?.replace(/\\s/g, '') || "+905313436612"}`} style={{ color: "#000", textDecoration: "none", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 900, fontFamily: "var(--font-heading)", display: "block" }}>
-               {settings?.contactPhone || "0531 343 66 12"}
+             <a href={`tel:${contact?.phone?.replace(/\\s/g, '') || "+905313436612"}`} style={{ color: "#000", textDecoration: "none", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 900, fontFamily: "var(--font-heading)", display: "block" }}>
+               {contact?.phone || "0531 343 66 12"}
              </a>
           </div>
 

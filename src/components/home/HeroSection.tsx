@@ -3,9 +3,9 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SiteSettings } from "@/lib/projects";
+import { HomePageSettings } from "@/lib/projects";
 
-export default function HeroSection({ preloaderDone, settings }: { preloaderDone: boolean, settings: SiteSettings }) {
+export default function HeroSection({ preloaderDone, home }: { preloaderDone: boolean, home: HomePageSettings }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const title1Ref = useRef<HTMLHeadingElement>(null);
   const title2Ref = useRef<HTMLHeadingElement>(null);
@@ -127,7 +127,7 @@ export default function HeroSection({ preloaderDone, settings }: { preloaderDone
                 fontFamily: "var(--font-heading), sans-serif",
               }}
             >
-              {settings.heroTitle.split(" ")[0]}
+              {home.heroTitle.split(" ")[0]}
             </h1>
           </div>
           <div style={{ overflow: "hidden", paddingBottom: "10px" }}>
@@ -141,7 +141,7 @@ export default function HeroSection({ preloaderDone, settings }: { preloaderDone
                 color: "var(--accent)",
               }}
             >
-              {settings.heroTitle.split(" ").slice(1).join(" ")}
+              {home.heroTitle.split(" ").slice(1).join(" ")}
             </h1>
           </div>
         </div>
@@ -179,7 +179,7 @@ export default function HeroSection({ preloaderDone, settings }: { preloaderDone
                 lineHeight: 1.2,
               }}
             >
-              {settings.heroSubtitle.split(". ")[0]}.
+              {home.heroSubtitle.split(". ")[0]}.
             </h2>
             <p
               style={{
@@ -190,7 +190,7 @@ export default function HeroSection({ preloaderDone, settings }: { preloaderDone
                 margin: "1.5rem auto 0",
               }}
             >
-              {settings.heroSubtitle.split(". ").slice(1).join(". ")}
+              {home.heroSubtitle.split(". ").slice(1).join(". ")}
             </p>
           </div>
         </div>

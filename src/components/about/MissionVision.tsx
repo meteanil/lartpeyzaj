@@ -3,8 +3,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AboutPageSettings } from "@/lib/projects";
 
-export default function MissionVision() {
+export default function MissionVision({ about }: { about: AboutPageSettings }) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -38,10 +39,10 @@ export default function MissionVision() {
           <div style={{ position: "absolute", top: "2rem", right: "2rem", opacity: 0.05, fontSize: "6rem", fontWeight: 900, lineHeight: 0.8, color: "var(--foreground)"}}>M</div>
           <span style={{ fontSize: "1rem", color: "var(--accent)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px" }}>Misyonumuz</span>
           <h3 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontFamily: "var(--font-heading)", fontWeight: 800, marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--foreground)" }}>
-            Mimariyi Doğayla Barıştırıyoruz.
+            {about.missionTitle}
           </h3>
           <p style={{ color: "var(--muted)", fontSize: "1.1rem", lineHeight: 1.7 }}>
-            Mimari yapıların gri soğukluğunu, doğanın canlı renkleriyle dengeliyoruz. Bireye özel fonksiyonel peyzaj çözümleri üretirken, ekolojik dengeyi koruyan, su ayak izini düşüren ve doğanın iyileştirici gücünü insanla buluşturan kusursuz bir mühendislik ortaya koyuyoruz.
+            {about.missionText}
           </p>
         </div>
 
@@ -50,10 +51,10 @@ export default function MissionVision() {
           <div style={{ position: "absolute", top: "2rem", right: "2rem", opacity: 0.05, fontSize: "6rem", fontWeight: 900, lineHeight: 0.8, color: "var(--foreground)"}}>V</div>
           <span style={{ fontSize: "1rem", color: "var(--accent)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "2px" }}>Vizyonumuz</span>
           <h3 style={{ fontSize: "clamp(2rem, 3vw, 2.5rem)", fontFamily: "var(--font-heading)", fontWeight: 800, marginTop: "1.5rem", marginBottom: "1.5rem", color: "var(--foreground)" }}>
-            Ölümsüz Ekosistemler.
+            {about.visionTitle}
           </h3>
           <p style={{ color: "var(--muted)", fontSize: "1.1rem", lineHeight: 1.7 }}>
-            Ulusal ve uluslararası ölçekte, peyzaj mimarlığının kurallarını sürdürülebilir bir eksende yeniden yazmak. 50 yıl sonra bile kendi kendine yetebilen, zamana meydan okuyan ve sonraki nesillere nefes olacak referans statüsünde doğal yaşam harikaları bırakmak.
+            {about.visionText}
           </p>
         </div>
 

@@ -2,7 +2,7 @@ import AboutHero from "@/components/about/AboutHero";
 import MissionVision from "@/components/about/MissionVision";
 import TeamSection from "@/components/about/TeamSection";
 import ContactSection from "@/components/home/ContactSection";
-import { getSiteSettings } from "@/lib/projects";
+import { getAboutPageSettings, getContactPageSettings, getTeamMembers } from "@/lib/projects";
 
 export const metadata = {
   title: "Hakkımızda | L'art Peyzaj Mimarlık",
@@ -10,7 +10,9 @@ export const metadata = {
 };
 
 export default async function AboutPage() {
-  const settings = await getSiteSettings();
+  const about = await getAboutPageSettings();
+  const contact = await getContactPageSettings();
+  const team = await getTeamMembers();
 
   return (
     <main
@@ -24,10 +26,10 @@ export default async function AboutPage() {
       }}
     >
       <AboutHero />
-      <MissionVision />
-      <TeamSection />
+      <MissionVision about={about} />
+      <TeamSection team={team} />
       {/* İletişim Formunu ve Footer'ı Ana Sayfadan Aynen Kullanıyoruz */}
-      <ContactSection settings={settings} />
+      <ContactSection contact={contact} />
     </main>
   );
 }

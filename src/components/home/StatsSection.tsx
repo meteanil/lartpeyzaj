@@ -3,15 +3,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HomePageSettings } from "@/lib/projects";
 
-const stats = [
-  { label: "Tamamlanan Proje", value: 20, suffix: "+", prefix: "" },
-  { label: "Yıllık Tecrübe", value: 7, suffix: "+", prefix: "" },
-  { label: "Müşteri Memnuniyeti", value: 100, suffix: "", prefix: "%" },
-  { label: "Uzman Ekip Üyesi", value: 3, suffix: "+", prefix: "" },
-];
-
-export default function StatsSection() {
+export default function StatsSection({ home }: { home: HomePageSettings }) {
   const sectionRef = useRef<HTMLElement>(null);
   const numberRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
@@ -28,7 +22,7 @@ export default function StatsSection() {
           if (!el) return;
           const target = { val: 0 };
           gsap.to(target, {
-            val: stats[index].value,
+            val: home.stats[index].value,
             duration: 2.5,
             ease: "power2.out",
             onUpdate: function () {
@@ -62,7 +56,7 @@ export default function StatsSection() {
           textAlign: "center",
         }}
       >
-        {stats.map((stat, index) => (
+        {home.stats.map((stat, index) => (
           <div key={index} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <h3
               style={{

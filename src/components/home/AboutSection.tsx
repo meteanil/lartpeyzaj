@@ -3,9 +3,9 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SiteSettings } from "@/lib/projects";
+import { AboutPageSettings } from "@/lib/projects";
 
-export default function AboutSection({ settings }: { settings: SiteSettings }) {
+export default function AboutSection({ about }: { about: AboutPageSettings }) {
   const containerRef = useRef<HTMLElement>(null);
   const textRefs = useRef<(HTMLHeadingElement | HTMLParagraphElement | null)[]>([]);
 
@@ -66,7 +66,7 @@ export default function AboutSection({ settings }: { settings: SiteSettings }) {
             marginBottom: "2rem",
           }}
         >
-          {settings.aboutTitle.split(" ")[0]} <span style={{ color: "var(--accent)" }}>{settings.aboutTitle.split(" ")[1]}</span> {settings.aboutTitle.split(" ").slice(2).join(" ")}
+          {about.aboutTitle.split(" ")[0]} <span style={{ color: "var(--accent)" }}>{about.aboutTitle.split(" ")[1]}</span> {about.aboutTitle.split(" ").slice(2).join(" ")}
         </h2>
         
         <p
@@ -79,7 +79,7 @@ export default function AboutSection({ settings }: { settings: SiteSettings }) {
             marginBottom: "3rem",
           }}
         >
-          {settings.aboutText.split("\\n\\n")[0]}
+          {about.aboutText1}
         </p>
 
         <p
@@ -93,7 +93,7 @@ export default function AboutSection({ settings }: { settings: SiteSettings }) {
             margin: "0 auto",
           }}
         >
-          {settings.aboutText.split("\\n\\n")[1]}
+          {about.aboutText2}
         </p>
       </div>
     </section>

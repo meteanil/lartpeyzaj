@@ -1,47 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { HomePageSettings } from "@/lib/projects";
 
-const services = [
-  {
-    id: "01",
-    title: "Peyzaj Tasarımı",
-    desc: "Arazinin ruhunu okuyarak, doğayla iç içe vizyoner ve estetik konsept projeler tasarlıyoruz.",
-    bg: "linear-gradient(135deg, #1f291f 0%, #0a0d0a 100%)",
-  },
-  {
-    id: "02",
-    title: "Akıllı Sert Zemin",
-    desc: "Ahşap, taş ve premium betonun kusursuz entegrasyonu ile dayanıklı mimari detaylar inşaa ediyoruz.",
-    bg: "linear-gradient(135deg, #1D1C1B 0%, #0a0a09 100%)",
-  },
-  {
-    id: "03",
-    title: "3D Modelleme",
-    desc: "Projenizi toprağa değmeden önce ultra-fotogerçekçi kalitede görün, VR desteğiyle içinde önce siz gezin.",
-    bg: "linear-gradient(135deg, #191A1E 0%, #0c0d0e 100%)",
-  },
-  {
-    id: "04",
-    title: "Botanik Uygulama",
-    desc: "İklime tam uyumlu endemik ağaçlandırma, özel ithal türler ve büyüleyici premium botanik aranjmanlar.",
-    bg: "linear-gradient(135deg, #171816 0%, #080807 100%)",
-  },
-  {
-    id: "05",
-    title: "Otonom Sulama",
-    desc: "Suyun her damlasını analiz edip koruyan, iklim okuyuculu akıllı sulama ve gizli drenaj sistemleri.",
-    bg: "linear-gradient(135deg, #1B1E22 0%, #0d0f11 100%)",
-  },
-  {
-    id: "06",
-    title: "Eko Restorasyon",
-    desc: "Bozulmuş coğrafyaları onarıp kendi kendine yetebilen, zamana meydan okuyan biyolojik yaşam alanları.",
-    bg: "linear-gradient(135deg, #1E1B18 0%, #0f0d0c 100%)",
-  },
-];
-
-export default function ServicesSection() {
+export default function ServicesSection({ home }: { home: HomePageSettings }) {
   const [active, setActive] = useState(0);
 
   return (
@@ -107,7 +69,7 @@ export default function ServicesSection() {
                gap: "1.5rem" 
              }}
           >
-            {services.map((srv, index) => {
+            {home.services.map((srv, index) => {
               const isActive = active === index;
               
               return (
