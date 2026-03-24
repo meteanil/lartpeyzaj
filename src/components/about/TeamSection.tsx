@@ -12,9 +12,7 @@ const team = [
     role: "Kurucu & Peyzaj Mimarı",
     desc: "7 yıllık tecrübesiyle L'art Peyzaj'ın vizyonunu şekillendiriyor. Modern ve sürdürülebilir tasarımların baş mimarı olarak doğaya estetik dokunuşlar katıyor.",
     bg: "linear-gradient(to top, rgba(163,204,57,0.1), rgba(0,0,0,0.5))",
-    image: "/Ekip/mete-anil.jpeg",
-    objectPosition: "center 38%",
-    scale: 1.3
+    image: "/Ekip/mete-anil.webp"
   },
   {
     id: 2,
@@ -22,9 +20,7 @@ const team = [
     role: "Kurucu & Peyzaj Mimarı",
     desc: "7 yıllık saha ve tasarım tecrübesiyle projelerin kusursuz uygulanmasına liderlik ediyor. Estetik vizyonu, mühendislik disipliniyle harmanlıyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
-    image: "/Ekip/berkan.jpeg",
-    objectPosition: "center 25%",
-    scale: 2.2
+    image: "/Ekip/berkan.webp"
   },
   {
     id: 3,
@@ -32,9 +28,7 @@ const team = [
     role: "Peyzaj Mimarı & Tasarım Müdürü",
     desc: "7 yıllık tecrübesiyle yenilikçi peyzaj konseptlerine hayat veriyor. Tasarım sürecinin her aşamasında sanatsal yaklaşımıyla ekibe ilham kaynağı oluyor.",
     bg: "linear-gradient(to top, rgba(255,255,255,0.05), rgba(0,0,0,0.5))",
-    image: "/Ekip/ozan-akturk.jpg",
-    objectPosition: "center 38%",
-    scale: 1.3
+    image: "/Ekip/ozan-akturk.webp"
   }
 ];
 
@@ -104,7 +98,7 @@ export default function TeamSection() {
              {/* Profil Çerçevesi */}
              <div style={{ width: "120px", height: "120px", borderRadius: "50%", background: member.bg, marginBottom: "2rem", border: "2px solid rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
                 {member.image ? (
-                  <Image src={member.image} alt={member.name} fill style={{ objectFit: "cover", objectPosition: member.objectPosition || "center", transform: member.scale ? `scale(${member.scale})` : "none" }} unoptimized />
+                  <Image src={member.image} alt={member.name} fill style={{ objectFit: "cover", objectPosition: "center center" }} unoptimized />
                 ) : (
                   <span style={{ fontSize: "2rem", fontWeight: 700, color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-heading)" }}>
                      {member.name.split(" ").map(n => n[0]).join("")}
