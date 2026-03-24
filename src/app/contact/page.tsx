@@ -1,13 +1,16 @@
 import ContactInfoGrid from "@/components/contact/ContactInfoGrid";
 import FAQ from "@/components/contact/FAQ";
 import ContactSection from "@/components/home/ContactSection";
+import { getSiteSettings } from "@/lib/projects";
 
 export const metadata = {
   title: "İletişim | L'art Peyzaj Mimarlık",
   description: "L'art Peyzaj Mimarlık ofis adresi, çalışma saatleri, direkt iletişim kanalları ve sıkça sorulan sorular.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+
   return (
     <main
       style={{
@@ -19,12 +22,12 @@ export default function ContactPage() {
         overflowX: "hidden",
       }}
     >
-      <ContactInfoGrid />
+      <ContactInfoGrid settings={settings} />
       <FAQ />
       
       {/* İletişim Formunu ve Mega Footer'ı sayfanın en sonuna doğrudan entegre ediyoruz */}
       <div style={{ marginTop: "4rem" }}>
-        <ContactSection />
+        <ContactSection settings={settings} />
       </div>
     </main>
   );

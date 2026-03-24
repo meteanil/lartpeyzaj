@@ -2,8 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { SiteSettings } from "@/lib/projects";
 
-export default function ContactInfoGrid() {
+export default function ContactInfoGrid({ settings }: { settings?: SiteSettings }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,8 +36,7 @@ export default function ContactInfoGrid() {
              <h3 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent)", marginBottom: "2rem", fontFamily: "var(--font-heading)" }}>Merkez Ofisimiz</h3>
              <p style={{ color: "var(--foreground)", fontSize: "1.3rem", fontWeight: 700, marginBottom: "1rem" }}>L'art Peyzaj Mimarlık</p>
              <p style={{ color: "var(--muted)", fontSize: "1.1rem", lineHeight: 1.7, marginBottom: "3rem" }}>
-                Nişantaş, İkra Sk. Nasip Sit. No:1/c <br/>
-                B Blok, 42090 Selçuklu / Konya
+                {settings?.contactAddress || "Nişantaş, İkra Sk. Nasip Sit. No:1/c B Blok, 42090 Selçuklu / Konya"}
              </p>
              <a href="https://maps.app.goo.gl/xDZ6jpDK7W6NJdpF6" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none", fontSize: "1rem", fontWeight: 700, letterSpacing: "2px", textTransform: "uppercase", borderBottom: "2px solid var(--accent)", paddingBottom: "0.3rem" }}>Yol Tarifi Al</a>
           </div>
@@ -65,8 +65,8 @@ export default function ContactInfoGrid() {
              <p style={{ color: "rgba(0,0,0,0.7)", fontSize: "1.15rem", marginBottom: "2.5rem", fontWeight: 500, lineHeight: 1.6 }}>
                Projeleriniz hakkında detaylı görüşmek veya arazinizde keşif planlamak için doğrudan merkez ofisimizi arayabilirsiniz.
              </p>
-             <a href="tel:+905313436612" style={{ color: "#000", textDecoration: "none", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 900, fontFamily: "var(--font-heading)", display: "block" }}>
-               0531 343 66 12
+             <a href={`tel:${settings?.contactPhone?.replace(/\\s/g, '') || "+905313436612"}`} style={{ color: "#000", textDecoration: "none", fontSize: "clamp(1.8rem, 3vw, 2.5rem)", fontWeight: 900, fontFamily: "var(--font-heading)", display: "block" }}>
+               {settings?.contactPhone || "0531 343 66 12"}
              </a>
           </div>
 

@@ -72,3 +72,32 @@ export async function getApplications(): Promise<Project[]> {
     year: p.year || new Date().getFullYear().toString()
   }));
 }
+
+export interface SiteSettings {
+  heroTitle: string;
+  heroSubtitle: string;
+  aboutTitle: string;
+  aboutText: string;
+  contactPhone: string;
+  contactEmail: string;
+  contactAddress: string;
+  instagramUrl: string;
+  whatsappNumber: string;
+}
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  const query = `*[_type == "siteSettings"][0]`;
+  const settings = await client.fetch(query, {}, { next: { revalidate: 60 } });
+  
+  return {
+    heroTitle: settings?.heroTitle || "Doğayı Tasarlıyoruz.",
+    heroSubtitle: settings?.heroSubtitle || "Sürdürülebilir Ekosistemler. Her projede doğanın dilini konuşuyor, yaşam alanlarınızı dönüştürüyoruz.",
+    aboutTitle: settings?.aboutTitle || "Form ile Fonksiyonu Birleştiriyoruz.",
+    aboutText: settings?.aboutText || "Sadece bitki dikmiyoruz; yaşayan, nefes alan ve zamanla olgunlaşan ekosistemler kuruyoruz. Peşinde olduğumuz şey doğanın kendi mükemmelliğini modern insanın yaşam alanlarına saygıyla taşıyabilmek.\\n\\nKonya merkezli firmamızda, hem bireysel ölçekli teras ve villalar hem de endüstriyel devasa ölçekli fabrikalar için prestij odaklı anahtar teslim proje hizmeti veriyoruz. Keşiften son çim biçmeye kadar sürecin her saniyesinde yanınızdayız.",
+    contactPhone: settings?.contactPhone || "+90 53X XXX XX XX",
+    contactEmail: settings?.contactEmail || "info@lartpeyzaj.com",
+    contactAddress: settings?.contactAddress || "Konya, Türkiye",
+    instagramUrl: settings?.instagramUrl || "https://www.instagram.com/lartpeyzaj",
+    whatsappNumber: settings?.whatsappNumber || "+9053XXXXXXXX",
+  };
+}

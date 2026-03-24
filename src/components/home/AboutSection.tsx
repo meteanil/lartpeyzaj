@@ -3,8 +3,9 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SiteSettings } from "@/lib/projects";
 
-export default function AboutSection() {
+export default function AboutSection({ settings }: { settings: SiteSettings }) {
   const containerRef = useRef<HTMLElement>(null);
   const textRefs = useRef<(HTMLHeadingElement | HTMLParagraphElement | null)[]>([]);
 
@@ -65,7 +66,7 @@ export default function AboutSection() {
             marginBottom: "2rem",
           }}
         >
-          Form ile <span style={{ color: "var(--accent)" }}>Fonksiyonu</span> Birleştiriyoruz.
+          {settings.aboutTitle.split(" ")[0]} <span style={{ color: "var(--accent)" }}>{settings.aboutTitle.split(" ")[1]}</span> {settings.aboutTitle.split(" ").slice(2).join(" ")}
         </h2>
         
         <p
@@ -78,7 +79,7 @@ export default function AboutSection() {
             marginBottom: "3rem",
           }}
         >
-          Sadece bitki dikmiyoruz; yaşayan, nefes alan ve zamanla olgunlaşan ekosistemler kuruyoruz. Peşinde olduğumuz şey doğanın kendi mükemmelliğini modern insanın yaşam alanlarına saygıyla taşıyabilmek.
+          {settings.aboutText.split("\\n\\n")[0]}
         </p>
 
         <p
@@ -92,7 +93,7 @@ export default function AboutSection() {
             margin: "0 auto",
           }}
         >
-          Konya merkezli firmamızda, hem bireysel ölçekli teras ve villalar hem de endüstriyel devasa ölçekli fabrikalar için prestij odaklı anahtar teslim proje hizmeti veriyoruz. Keşiften son çim biçmeye kadar sürecin her saniyesinde yanınızdayız.
+          {settings.aboutText.split("\\n\\n")[1]}
         </p>
       </div>
     </section>

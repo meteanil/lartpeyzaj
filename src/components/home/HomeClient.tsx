@@ -8,9 +8,9 @@ import ProjectsShowcase from "@/components/home/ProjectsShowcase";
 import StatsSection from "@/components/home/StatsSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import ContactSection from "@/components/home/ContactSection";
-import { Project } from "@/lib/projects";
+import { Project, SiteSettings } from "@/lib/projects";
 
-export default function HomeClient({ projects }: { projects: Project[] }) {
+export default function HomeClient({ projects, settings }: { projects: Project[], settings: SiteSettings }) {
   const [preloaderDone, setPreloaderDone] = useState(false);
 
   return (
@@ -26,12 +26,12 @@ export default function HomeClient({ projects }: { projects: Project[] }) {
     >
       {!preloaderDone && <Preloader onComplete={() => setPreloaderDone(true)} />}
 
-      <HeroSection preloaderDone={preloaderDone} />
-      <AboutSection />
+      <HeroSection preloaderDone={preloaderDone} settings={settings} />
+      <AboutSection settings={settings} />
       <ProjectsShowcase preloaderDone={preloaderDone} projects={projects} />
       <StatsSection />
       <ServicesSection />
-      <ContactSection />
+      <ContactSection settings={settings} />
     </main>
   );
 }

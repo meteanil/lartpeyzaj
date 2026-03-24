@@ -3,8 +3,9 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SiteSettings } from "@/lib/projects";
 
-export default function HeroSection({ preloaderDone }: { preloaderDone: boolean }) {
+export default function HeroSection({ preloaderDone, settings }: { preloaderDone: boolean, settings: SiteSettings }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const title1Ref = useRef<HTMLHeadingElement>(null);
   const title2Ref = useRef<HTMLHeadingElement>(null);
@@ -126,7 +127,7 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
                 fontFamily: "var(--font-heading), sans-serif",
               }}
             >
-              Doğayı
+              {settings.heroTitle.split(" ")[0]}
             </h1>
           </div>
           <div style={{ overflow: "hidden", paddingBottom: "10px" }}>
@@ -140,7 +141,7 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
                 color: "var(--accent)",
               }}
             >
-              Tasarlıyoruz.
+              {settings.heroTitle.split(" ").slice(1).join(" ")}
             </h1>
           </div>
         </div>
@@ -178,9 +179,7 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
                 lineHeight: 1.2,
               }}
             >
-              Sürdürülebilir
-              <br />
-              Ekosistemler.
+              {settings.heroSubtitle.split(". ")[0]}.
             </h2>
             <p
               style={{
@@ -191,8 +190,7 @@ export default function HeroSection({ preloaderDone }: { preloaderDone: boolean 
                 margin: "1.5rem auto 0",
               }}
             >
-              Her projede doğanın dilini konuşuyor, yaşam alanlarınızı
-              dönüştürüyoruz.
+              {settings.heroSubtitle.split(". ").slice(1).join(". ")}
             </p>
           </div>
         </div>

@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SiteSettings } from "@/lib/projects";
 
-export default function ContactSection() {
+export default function ContactSection({ settings }: { settings?: SiteSettings }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -98,7 +99,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginBottom: "0.3rem", textTransform: "uppercase", letterSpacing: "1px" }}>Ofisimiz</p>
-                <p style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "1.1rem" }}>Selçuklu, Konya / Türkiye</p>
+                <p style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "1.1rem" }}>{settings?.contactAddress || "Konya, Türkiye"}</p>
               </div>
             </div>
 
@@ -108,7 +109,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginBottom: "0.3rem", textTransform: "uppercase", letterSpacing: "1px" }}>Telefon</p>
-                <p style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "1.1rem" }}>0531 343 66 12</p>
+                <p style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "1.1rem" }}>{settings?.contactPhone || "053X XXX XX XX"}</p>
               </div>
             </div>
 
@@ -118,7 +119,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginBottom: "0.3rem", textTransform: "uppercase", letterSpacing: "1px" }}>E-Posta</p>
-                <p style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "1.1rem" }}>info@lartpeyzaj.com</p>
+                <p style={{ color: "var(--foreground)", fontWeight: 600, fontSize: "1.1rem" }}>{settings?.contactEmail || "info@lartpeyzaj.com"}</p>
               </div>
             </div>
 
@@ -235,7 +236,7 @@ export default function ContactSection() {
               <a href="/cerez-politikasi" style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", fontSize: "0.85rem", transition: "color 0.3s" }} onMouseEnter={e => e.currentTarget.style.color="var(--accent)"} onMouseLeave={e => e.currentTarget.style.color="rgba(255,255,255,0.4)"}>Çerez Politikası</a>
               <div style={{ width: "1px", height: "15px", backgroundColor: "rgba(255,255,255,0.1)" }} />
               
-              <a href="https://www.instagram.com/lartpeyzajmimarlik/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.4)", transition: "color 0.3s", display: "flex", alignItems: "center", gap: "0.4rem" }} onMouseEnter={e => e.currentTarget.style.color="var(--accent)"} onMouseLeave={e => e.currentTarget.style.color="rgba(255,255,255,0.4)"}>
+              <a href={settings?.instagramUrl || "https://www.instagram.com/lartpeyzajmimarlik/"} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,0.4)", transition: "color 0.3s", display: "flex", alignItems: "center", gap: "0.4rem" }} onMouseEnter={e => e.currentTarget.style.color="var(--accent)"} onMouseLeave={e => e.currentTarget.style.color="rgba(255,255,255,0.4)"}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
             </div>
