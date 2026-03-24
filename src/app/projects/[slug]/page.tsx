@@ -3,16 +3,16 @@ import ProjectDetail from "./ProjectDetail";
 import { notFound } from "next/navigation";
 import { use } from "react";
 
-export function generateStaticParams() {
-  const projects = getProjects();
-  const applications = getApplications();
+export async function generateStaticParams() {
+  const projects = await getProjects();
+  const applications = await getApplications();
   return [...projects, ...applications].map((p) => ({ slug: p.slug }));
 }
 
-export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
-  const projects = getProjects();
-  const applications = getApplications();
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const projects = await getProjects();
+  const applications = await getApplications();
   const allItems = [...projects, ...applications];
   const project = allItems.find((p) => p.slug === slug);
   if (!project) notFound();

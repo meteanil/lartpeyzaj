@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { getProjects } from "@/lib/projects";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://lartpeyzaj.com";
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projects = getProjects();
+  const projects = await getProjects();
   const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),

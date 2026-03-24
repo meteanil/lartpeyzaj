@@ -1,9 +1,9 @@
 import { getProjects, getApplications } from "@/lib/projects";
 import ProjectsPageClient from "./ProjectsPageClient";
 
-export default function ProjectsPage() {
-  const projects = getProjects();
-  const applications = getApplications();
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+  const applications = await getApplications();
   
   const safeProjects = projects.length > 0 ? projects : [
     {
