@@ -6,8 +6,8 @@ export interface Project {
   slug: string;
   category: string;
   description: string;
-  coverImage: string;
   gallery: string[];
+  youtubeVideos?: string[];
   subtitle?: string;
   year?: string;
   location?: string;

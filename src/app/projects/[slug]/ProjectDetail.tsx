@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { projectVideos } from "@/lib/projectVideos";
 
 export default function ProjectDetail({ project }: { project: any }) {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -168,42 +167,52 @@ export default function ProjectDetail({ project }: { project: any }) {
       </div>
 
       {/* VIDEO BÖLÜMÜ */}
-      {projectVideos[project.slug] && projectVideos[project.slug].length > 0 && (
+      {project.youtubeVideos && project.youtubeVideos.length > 0 && (
         <div style={{ maxWidth: "1600px", margin: "6rem auto", padding: "0 5vw" }}>
           <h3 style={{ fontSize: "2rem", fontFamily: "var(--font-heading)", fontWeight: 800, marginBottom: "3rem", color: "var(--foreground)", textAlign: "center" }}>
             Proje <span style={{ color: "var(--accent)", fontStyle: "italic" }}>Videoları.</span>
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2rem" }}>
-            {projectVideos[project.slug].map((videoUrl: string, index: number) => (
-              <div
-                key={index}
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  paddingBottom: videoUrl.includes("shorts") ? "177%" : "56.25%",
-                  borderRadius: "24px",
-                  overflow: "hidden",
-                  border: "1px solid rgba(255,255,255,0.05)",
-                  backgroundColor: "#060706",
-                }}
-              >
-                <iframe
-                  src={videoUrl}
-                  title={`${project.title} Video ${index + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+            {project.youtubeVideos.map((rawUrl: string, index: number) => {
+              // Düz YouTube linklerini iframe uyumlu embed formatına çevir
+              let embedUrl = rawUrl;
+              if (rawUrl.includes("watch?v=")) embedUrl = rawUrl.replace("watch?v=", "embed/");
+              else if (rawUrl.includes("youtu.be/")) embedUrl = rawUrl.replace("youtu.be/", "www.youtube.com/embed/");
+              
+              const isShorts = rawUrl.includes("shorts");
+              if (isShorts) embedUrl = embedUrl.replace("shorts/", "embed/");
+
+              return (
+                <div
+                  key={index}
                   style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
+                    position: "relative",
                     width: "100%",
-                    height: "100%",
-                    border: "none",
+                    paddingBottom: isShorts ? "177%" : "56.25%",
                     borderRadius: "24px",
+                    overflow: "hidden",
+                    border: "1px solid rgba(255,255,255,0.05)",
+                    backgroundColor: "#060706",
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <iframe
+                    src={embedUrl}
+                    title={`${project.title} Video ${index + 1}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      borderRadius: "24px",
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

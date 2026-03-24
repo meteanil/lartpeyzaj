@@ -51,6 +51,13 @@ export const projectType = defineType({
       title: 'Proje Detaylı Açıklaması',
       type: 'text',
     }),
+    defineField({
+      name: 'youtubeVideos',
+      title: 'YouTube Video Linkleri',
+      type: 'array',
+      of: [{ type: 'url' }],
+      description: 'Eğer projeye ait YouTube videosu varsa YouTube linklerini (Örn: https://www.youtube.com/watch?v=...) buraya ekleyebilirsiniz.',
+    }),
   ],
   preview: {
     select: {

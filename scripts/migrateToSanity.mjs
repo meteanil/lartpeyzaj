@@ -10,7 +10,7 @@ const client = createClient({
   token: 'skvPKUy1J6ppvk8zgGbhOV10xsJ5SQun5nNSXoMy3kRwF6efNUqRYiycXJcGSyaqNlxvKLxlbGJ5jBKdQB4OVh18EfZB31eKcXZ3jJtuTAfw9yXnWpiuMpVwUslvzTZAxn5haS3YFLQg4Bj3LbvMnYm8Rzt3flKwloFxfPikIGPzU6xQbYwt',
 });
 
-const baseDir = path.resolve('public/Projeler_');
+const baseDir = path.resolve('public/Uygulamalar');
 
 const trMap = {
     'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
@@ -79,7 +79,7 @@ async function migrate() {
       }
       
       const doc = {
-        _type: 'project',
+        _type: 'application',
         title: folder,
         slug: { _type: 'slug', current: slugify(folder) },
         location: 'Konya',
