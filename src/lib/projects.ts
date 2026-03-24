@@ -42,6 +42,28 @@ export async function getProjects(): Promise<Project[]> {
 }
 
 export async function getApplications(): Promise<Project[]> {
-  // Uygulamalar (Applications) verileri şimdilik harici tutuluyor veya silinebilir
-  return [];
+  const query = `*[_type == "application"] | order(_createdAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    description,
+    "coverImage": coverImage.asset->url,
+    "gallery": gallery[].asset->url,
+    location,
+    year
+  }`;
+  
+  const applications = await client.fetch(query, {}, { next: { revalidate: 60 } });
+  
+  return applications.map((p: any) => ({
+    id: p._id,
+    title: p.title,
+    slug: p.slug || '#',
+    category: "Uygulamalar",
+    description: p.description || "",
+    coverImage: p.coverImage || "/placeholder.jpg",
+    gallery: p.gallery || [],
+    location: p.location || "Konya",
+    year: p.year || new Date().getFullYear().toString()
+  }));
 }
