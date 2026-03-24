@@ -24,7 +24,8 @@ export async function getProjects(): Promise<Project[]> {
     "coverImage": coverImage.asset->url,
     "gallery": gallery[].asset->url,
     location,
-    year
+    year,
+    youtubeVideos
   }`;
   
   const projects = await client.fetch(query, {}, { next: { revalidate: 60 } });
@@ -37,6 +38,7 @@ export async function getProjects(): Promise<Project[]> {
     description: p.description || "",
     coverImage: p.coverImage || "/placeholder.jpg",
     gallery: p.gallery || [],
+    youtubeVideos: p.youtubeVideos || [],
     location: p.location || "Konya",
     year: p.year || new Date().getFullYear().toString()
   }));
@@ -51,7 +53,8 @@ export async function getApplications(): Promise<Project[]> {
     "coverImage": coverImage.asset->url,
     "gallery": gallery[].asset->url,
     location,
-    year
+    year,
+    youtubeVideos
   }`;
   
   const applications = await client.fetch(query, {}, { next: { revalidate: 60 } });
@@ -64,6 +67,7 @@ export async function getApplications(): Promise<Project[]> {
     description: p.description || "",
     coverImage: p.coverImage || "/placeholder.jpg",
     gallery: p.gallery || [],
+    youtubeVideos: p.youtubeVideos || [],
     location: p.location || "Konya",
     year: p.year || new Date().getFullYear().toString()
   }));
