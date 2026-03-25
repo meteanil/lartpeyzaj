@@ -75,9 +75,9 @@ export default function AboutSection({ home }: { home: HomePageSettings }) {
           style={{
             fontSize: "clamp(1rem, 1.5vw, 1.2rem)",
             lineHeight: 1.8,
-            color: "var(--foreground)",
             opacity: 0.8,
             maxWidth: "600px",
+            margin: "0 auto",
           }}
         >
           {home.aboutText2}
