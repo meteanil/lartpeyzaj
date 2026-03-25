@@ -6,19 +6,14 @@ export const aboutPageType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'aboutTitle',
-      title: 'Ana Başlık',
+      name: 'heroTitle',
+      title: 'Hakkımızda Ana Başlık',
       type: 'string',
-      description: 'Form ile Fonksiyonu Birleştiriyoruz.',
+      description: 'Örn: Doğanın İzini Şehre Kazıyoruz.',
     }),
     defineField({
-      name: 'aboutText1',
-      title: 'Hakkımızda 1ci Paragraf',
-      type: 'text',
-    }),
-    defineField({
-      name: 'aboutText2',
-      title: 'Hakkımızda 2ci Paragraf',
+      name: 'heroText',
+      title: 'Hakkımızda Ana Kısa Metin (Paragraf)',
       type: 'text',
     }),
     defineField({

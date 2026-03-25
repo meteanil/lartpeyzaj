@@ -37,8 +37,8 @@ export default function HomeClient({
       {!preloaderDone && <Preloader onComplete={() => setPreloaderDone(true)} />}
 
       <HeroSection preloaderDone={preloaderDone} home={home} />
-      <AboutSection about={about} />
-      <ProjectsShowcase preloaderDone={preloaderDone} projects={projects} />
+      <AboutSection home={home} />
+      <ProjectsShowcase preloaderDone={preloaderDone} projects={projects} home={home} />
       <StatsSection home={home} />
       <ServicesSection home={home} />
       <ContactSection contact={contact} />

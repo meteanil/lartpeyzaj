@@ -49,6 +49,26 @@ export const contactPageType = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'faqTitle',
+      title: 'SSS Başlığı',
+      type: 'string',
+      description: 'Örn: Sıkça Sorulan Sorular.',
+    }),
+    defineField({
+      name: 'faqs',
+      title: 'Sıkça Sorulan Sorular Listesi',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'q', type: 'string', title: 'Soru' },
+            { name: 'a', type: 'text', title: 'Cevap' },
+          ],
+        },
+      ],
+    }),
   ],
   preview: {
     prepare() {

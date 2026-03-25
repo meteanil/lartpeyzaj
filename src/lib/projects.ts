@@ -78,6 +78,14 @@ export interface HomePageSettings {
   heroSubtitle: string;
   stats: { label: string; value: number; prefix?: string; suffix?: string }[];
   services: { id: string; title: string; desc: string; bg?: string }[];
+  aboutTitle: string;
+  aboutText1: string;
+  aboutText2: string;
+  projectsTitle: string;
+  projectsSubtitle: string;
+  processTitle: string;
+  processSubtitle: string;
+  processSteps: { id: string; title: string; desc: string }[];
 }
 
 export async function getHomePageSettings(): Promise<HomePageSettings> {
@@ -100,14 +108,25 @@ export async function getHomePageSettings(): Promise<HomePageSettings> {
       { id: "04", title: "Botanik Uygulama", desc: "İklime tam uyumlu endemik ağaçlandırma, özel ithal türler ve büyüleyici premium botanik aranjmanlar.", bg: "linear-gradient(135deg, #171816 0%, #080807 100%)" },
       { id: "05", title: "Otonom Sulama", desc: "Suyun her damlasını analiz edip koruyan, iklim okuyuculu akıllı sulama ve gizli drenaj sistemleri.", bg: "linear-gradient(135deg, #1B1E22 0%, #0d0f11 100%)" },
       { id: "06", title: "Eko Restorasyon", desc: "Bozulmuş coğrafyaları onarıp kendi kendine yetebilen, zamana meydan okuyan biyolojik yaşam alanları.", bg: "linear-gradient(135deg, #1E1B18 0%, #0f0d0c 100%)" },
+    ],
+    aboutTitle: data?.aboutTitle || "Form ile Fonksiyonu Birleştiriyoruz.",
+    aboutText1: data?.aboutText1 || "Sadece bitki dikmiyoruz; yaşayan, nefes alan ve zamanla olgunlaşan ekosistemler kuruyoruz. Peşinde olduğumuz şey doğanın kendi mükemmelliğini modern insanın yaşam alanlarına saygıyla taşıyabilmek.",
+    aboutText2: data?.aboutText2 || "Konya merkezli firmamızda, hem bireysel ölçekli teras ve villalar hem de endüstriyel devasa ölçekli fabrikalar için prestij odaklı anahtar teslim proje hizmeti veriyoruz. Keşiften son çim biçmeye kadar sürecin her saniyesinde yanınızdayız.",
+    projectsTitle: data?.projectsTitle || "Doğaya Bıraktığımız İmzalar.",
+    projectsSubtitle: data?.projectsSubtitle || "Her projemiz, doğanın ve mimarinin birlikte nefes aldığı bir hikâye.",
+    processTitle: data?.processTitle || "Her Proje Bir Yolculuktur.",
+    processSubtitle: data?.processSubtitle || "Çalışma Sürecimiz",
+    processSteps: data?.processSteps || [
+      { id: "01", title: "Tasarım & Planlama", desc: "Arazinin ruhunu okur, vizyoner konseptler çizeriz." },
+      { id: "02", title: "Sert & Yumuşak Uygulama", desc: "Dayanıklı materyaller ve canlı bitkilerle sahaya ineriz." },
+      { id: "03", title: "Sürdürülebilirlik & Bakım", desc: "İlk günkü parıltıyı koruyacak bakım planları sunarız." },
     ]
   };
 }
 
 export interface AboutPageSettings {
-  aboutTitle: string;
-  aboutText1: string;
-  aboutText2: string;
+  heroTitle: string;
+  heroText: string;
   missionTitle: string;
   missionText: string;
   visionTitle: string;
@@ -119,9 +138,8 @@ export async function getAboutPageSettings(): Promise<AboutPageSettings> {
   const data = await client.fetch(query, {}, { next: { revalidate: 60 } });
   
   return {
-    aboutTitle: data?.aboutTitle || "Form ile Fonksiyonu Birleştiriyoruz.",
-    aboutText1: data?.aboutText1 || "Sadece bitki dikmiyoruz; yaşayan, nefes alan ve zamanla olgunlaşan ekosistemler kuruyoruz. Peşinde olduğumuz şey doğanın kendi mükemmelliğini modern insanın yaşam alanlarına saygıyla taşıyabilmek.",
-    aboutText2: data?.aboutText2 || "Konya merkezli firmamızda, hem bireysel ölçekli teras ve villalar hem de endüstriyel devasa ölçekli fabrikalar için prestij odaklı anahtar teslim proje hizmeti veriyoruz. Keşiften son çim biçmeye kadar sürecin her saniyesinde yanınızdayız.",
+    heroTitle: data?.heroTitle || "Doğanın İzini Şehre Kazıyoruz.",
+    heroText: data?.heroText || "Mekanın kendi ruhunu dinleyerek, estetikle mühendisliğin birleştiği o altın noktayı buluyoruz. Her bahçe bir şiir, her peyzaj projesi yaşam boyu nefes alan bir ekosistemdir.",
     missionTitle: data?.missionTitle || "Mimariyi Doğayla Barıştırıyoruz.",
     missionText: data?.missionText || "Mimari yapıların gri soğukluğunu, doğanın canlı renkleriyle dengeliyoruz. Bireye özel fonksiyonel peyzaj çözümleri üretirken, ekolojik dengeyi koruyan, su ayak izini düşüren ve doğanın iyileştirici gücünü insanla buluşturan kusursuz bir mühendislik ortaya koyuyoruz.",
     visionTitle: data?.visionTitle || "Ölümsüz Ekosistemler.",
@@ -137,6 +155,8 @@ export interface ContactPageSettings {
   whatsappNumber: string;
   mapLink: string;
   workingHours: { days: string; hours: string }[];
+  faqTitle: string;
+  faqs: { q: string; a: string }[];
 }
 
 export async function getContactPageSettings(): Promise<ContactPageSettings> {
@@ -154,6 +174,14 @@ export async function getContactPageSettings(): Promise<ContactPageSettings> {
       { days: "Pzt - Cuma", hours: "09:00 — 18:30" },
       { days: "Cumartesi", hours: "09:00 — 14:00" },
       { days: "Pazar", hours: "Kapalı" }
+    ],
+    faqTitle: data?.faqTitle || "Sıkça Sorulan Sorular.",
+    faqs: data?.faqs || [
+      { q: "Konya dışında veya yurtdışında proje yapıyor musunuz?", a: "Evet, operasyon merkezimiz Konya'da olmasına rağmen tüm Türkiye'de ve yurt dışında otel, resort, fabrika ve büyük ölçekli malikane projelerinin konsept tasarım ve anahtar teslim uygulamalarını yürütüyoruz." },
+      { q: "Bir projenin teslim süresi ortalama ne kadardır?", a: "Projelerin ölçeğine göre değişmekle birlikte, konsept tasarım süreci genellikle 2-4 hafta arası sürmektedir. Saha uygulama süreleri ise arazinin büyüklüğüne ve sert zemin yapı elemanlarının yoğunluğuna göre proje bazlı belirlenir." },
+      { q: "Uzaktan tasarım ve 3D Modelleme hizmeti alabilir miyim?", a: "Kesinlikle. Sahayı biz bizzat ziyaret etmesek bile, tarafınızdan iletilecek drone görüntüleri, harita ölçümleri ve mimari kat planları üzerinden ultra-gerçekçi 3D mimari peyzaj modelleme ve online revizyonlu danışmanlık hizmeti sunmaktayız." },
+      { q: "Sadece bitkisel uygulama mı yapıyorsunuz?", a: "Hayır, L'art Peyzaj Mimarlık olarak yalnızca yeşillendirme değil; arazinin altyapısı, drenaj sistemleri, otonom iklim duyarlı sulama ağları, yüzme havuzları, premium pergolalar, istinat duvarları ve tüm yapısal (sert) zemin mimarisini bizzat tasarlayıp uyguluyoruz." },
+      { q: "Randevu almadan ofise gelebilir miyim?", a: "Ofisimiz hafta içi her gün 09:00 - 18:30 arası açıktır. Çat kapı bir kahve içmeye her zaman gelebilirsiniz; ancak projeniz üzerinde baş mimarımızla detaylı bir toplantı yapmak isterseniz öncesinde telefonla randevu oluşturmanızı tavsiye ederiz." }
     ]
   };
 }

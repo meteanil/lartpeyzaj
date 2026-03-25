@@ -23,7 +23,7 @@ export default async function ContactPage() {
       }}
     >
       <ContactInfoGrid contact={contact} />
-      <FAQ />
+      <FAQ title={contact.faqTitle} faqs={contact.faqs} />
       
       {/* İletişim Formunu ve Mega Footer'ı sayfanın en sonuna doğrudan entegre ediyoruz */}
       <div style={{ marginTop: "4rem" }}>

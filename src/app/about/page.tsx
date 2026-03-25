@@ -25,7 +25,7 @@ export default async function AboutPage() {
         overflowX: "hidden",
       }}
     >
-      <AboutHero />
+      <AboutHero about={about} />
       <MissionVision about={about} />
       <TeamSection team={team} />
       {/* İletişim Formunu ve Footer'ı Ana Sayfadan Aynen Kullanıyoruz */}

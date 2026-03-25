@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Project } from "@/lib/projects";
+import { Project, HomePageSettings } from "@/lib/projects";
 
 // Type definitions for GSAP events
 interface GSAPEvent {
@@ -13,20 +13,14 @@ interface GSAPEvent {
   direction: number;
 }
 
-const processSteps = [
-  { id: "01", title: "Tasarım & Planlama", desc: "Arazinin ruhunu okur, vizyoner konseptler çizeriz." },
-  { id: "02", title: "Sert & Yumuşak Uygulama", desc: "Dayanıklı materyaller ve canlı bitkilerle sahaya ineriz." },
-  { id: "03", title: "Sürdürülebilirlik & Bakım", desc: "İlk günkü parıltıyı koruyacak bakım planları sunarız." },
-];
-
-
-
 export default function ProjectsShowcase({
   preloaderDone,
-  projects
+  projects,
+  home
 }: {
   preloaderDone?: boolean;
   projects: Project[];
+  home: HomePageSettings;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const foldRef = useRef<HTMLDivElement>(null);
@@ -198,10 +192,10 @@ export default function ProjectsShowcase({
           <div id="foldContent" style={{ textAlign: "center", maxWidth: "700px", padding: "0 4vw" }}>
             <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "3px", textTransform: "uppercase" }}>Projelerimiz</span>
             <h2 style={{ fontSize: "clamp(1.5rem, 5vw, 3.5rem)", fontFamily: "var(--font-heading), sans-serif", fontWeight: 800, lineHeight: 1.1, color: "var(--foreground)", marginTop: "1rem" }}>
-              Doğaya Bıraktığımız <span style={{ color: "var(--accent)" }}>İmzalar.</span>
+              {home.projectsTitle?.split(" ").slice(0, -1).join(" ")} <span style={{ color: "var(--accent)" }}>{home.projectsTitle?.split(" ").slice(-1)}</span>
             </h2>
             <p style={{ color: "var(--muted)", marginTop: "1.5rem", fontSize: "clamp(0.9rem, 2vw, 1.1rem)", lineHeight: 1.6 }}>
-               Her projemiz, doğanın ve mimarinin birlikte nefes aldığı bir hikâye.
+               {home.projectsSubtitle}
             </p>
           </div>
         </div>
@@ -293,14 +287,14 @@ export default function ProjectsShowcase({
         {/* Süreç Adımları */}
         <div style={{ width: isMobile ? "100%" : "35%", flex: isMobile ? "none" : "0 0 35%", display: "flex", flexDirection: "column", gap: isMobile ? "0.8rem" : "1.2rem", alignItems: isMobile ? "center" : "flex-start" }}>
           <div style={{ marginBottom: "0.8rem", textAlign: isMobile ? "center" : "left", width: "100%" }}>
-            <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.8rem", letterSpacing: "3px", textTransform: "uppercase" }}>Çalışma Sürecimiz</span>
+            <span style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.8rem", letterSpacing: "3px", textTransform: "uppercase" }}>{home.processSubtitle}</span>
             <h2 style={{ fontSize: "clamp(1.6rem, 2.5vw, 2.5rem)", fontWeight: 800, fontFamily: "var(--font-heading)", color: "var(--foreground)", marginTop: "0.5rem", lineHeight: 1.1 }}>
-              Her Proje Bir<br /><span style={{ color: "var(--accent)" }}>Yolculuktur.</span>
+              {home.processTitle?.split(" ").slice(0, -1).join(" ")}<br /><span style={{ color: "var(--accent)" }}>{home.processTitle?.split(" ").slice(-1)}</span>
             </h2>
           </div>
           <div style={{ display: "grid", width: "100%", maxWidth: isMobile ? "400px" : "100%" }}>
-            {processSteps.map((step, idx) => (
-              <div key={step.id} style={{
+            {home.processSteps?.map((step, idx) => (
+              <div key={idx} style={{
                 gridArea: isMobile ? "1 / 1" : "auto",
                 padding: "1.2rem 1.5rem", borderRadius: "12px",
                 border: `1px solid ${activeStep === idx ? "rgba(192,215,52,0.4)" : "rgba(244,246,240,0.06)"}`,

@@ -48,6 +48,57 @@ export const homePageType = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: 'aboutTitle',
+      title: 'Hakkımızda Başlığı',
+      type: 'string',
+      description: 'Form ile Fonksiyonu Birleştiriyoruz.',
+    }),
+    defineField({
+      name: 'aboutText1',
+      title: 'Hakkımızda 1ci Paragraf',
+      type: 'text',
+    }),
+    defineField({
+      name: 'aboutText2',
+      title: 'Hakkımızda 2ci Paragraf',
+      type: 'text',
+    }),
+    defineField({
+      name: 'projectsTitle',
+      title: 'Projelerimiz Başlığı',
+      type: 'string',
+    }),
+    defineField({
+      name: 'projectsSubtitle',
+      title: 'Projelerimiz Alt Metni',
+      type: 'text',
+    }),
+    defineField({
+      name: 'processTitle',
+      title: 'Çalışma Süreci Başlığı',
+      type: 'string',
+    }),
+    defineField({
+      name: 'processSubtitle',
+      title: 'Çalışma Süreci Alt Metni',
+      type: 'text',
+    }),
+    defineField({
+      name: 'processSteps',
+      title: 'Çalışma Süreci Adımları',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'id', type: 'string', title: 'Numara (Örn: 01)' },
+            { name: 'title', type: 'string', title: 'Adım Başlığı' },
+            { name: 'desc', type: 'text', title: 'Adım Açıklaması' },
+          ],
+        },
+      ],
     })
   ],
   preview: {

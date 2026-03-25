@@ -2,8 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { AboutPageSettings } from "@/lib/projects";
 
-export default function AboutHero() {
+export default function AboutHero({ about }: { about: AboutPageSettings }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
@@ -65,8 +66,7 @@ export default function AboutHero() {
             opacity: 0
           }}
         >
-          Doğanın İzini<br />
-          Şehre <span style={{ color: "var(--accent)", fontStyle: "italic" }}>Kazıyoruz.</span>
+          {about.heroTitle?.split(" ").slice(0, -1).join(" ")} <span style={{ color: "var(--accent)", fontStyle: "italic" }}>{about.heroTitle?.split(" ").slice(-1)}</span>
         </h1>
 
         <p 
@@ -79,7 +79,7 @@ export default function AboutHero() {
             opacity: 0
           }}
         >
-          Mekanın kendi ruhunu dinleyerek, estetikle mühendisliğin birleştiği o altın noktayı buluyoruz. Her bahçe bir şiir, her peyzaj projesi yaşam boyu nefes alan bir ekosistemdir.
+          {about.heroText}
         </p>
       </div>
 
