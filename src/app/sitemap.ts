@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getProjects } from "@/lib/projects";
+import { getProjects, getApplications } from "@/lib/projects";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://lartpeyzaj.com";
@@ -32,7 +32,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const projects = await getProjects();
-  const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
+  const applications = await getApplications();
+  const allItems = [...projects, ...applications];
+
+  const projectPages: MetadataRoute.Sitemap = allItems.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
