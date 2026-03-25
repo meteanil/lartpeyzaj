@@ -55,6 +55,49 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LandscapeDesign",
+              name: "L'art Peyzaj Mimarlık",
+              image: "https://lartpeyzaj.com/og-image.png",
+              "@id": "https://lartpeyzaj.com",
+              url: "https://lartpeyzaj.com",
+              telephone: "+905313436612",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Nişantaş, İkra Sk. Nasip Sit. No:1/c B Blok",
+                addressLocality: "Selçuklu",
+                addressRegion: "Konya",
+                postalCode: "42090",
+                addressCountry: "TR"
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 37.876,
+                longitude: 32.482
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  opens: "09:00",
+                  closes: "18:30"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Saturday"],
+                  opens: "09:00",
+                  closes: "14:00"
+                }
+              ]
+            })
+          }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${dmSans.variable}`}
         style={{ cursor: "none", fontFamily: "var(--font-body), sans-serif" }}
