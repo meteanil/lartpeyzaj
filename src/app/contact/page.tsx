@@ -6,6 +6,9 @@ import { getContactPageSettings } from "@/lib/projects";
 export const metadata = {
   title: "İletişim | L'art Peyzaj Mimarlık",
   description: "L'art Peyzaj Mimarlık ofis adresi, çalışma saatleri, direkt iletişim kanalları ve sıkça sorulan sorular.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default async function ContactPage() {

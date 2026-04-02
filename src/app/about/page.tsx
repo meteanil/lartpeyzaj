@@ -7,6 +7,9 @@ import { getAboutPageSettings, getContactPageSettings, getTeamMembers } from "@/
 export const metadata = {
   title: "Hakkımızda | L'art Peyzaj Mimarlık",
   description: "L'art Peyzaj Mimarlık firmasının kuruluş hikayesi, misyonu, vizyonu ve uzman tasarım ekibi.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default async function AboutPage() {

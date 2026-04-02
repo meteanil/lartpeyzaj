@@ -1,6 +1,14 @@
 import { getProjects, getApplications } from "@/lib/projects";
 import ProjectsPageClient from "./ProjectsPageClient";
 
+export const metadata = {
+  title: "Projelerimiz | L'art Peyzaj Mimarlık",
+  description: "L'art Peyzaj Mimarlık'ın tamamladığı peyzaj tasarım projeleri ve uygulamaları.",
+  alternates: {
+    canonical: "/projects",
+  },
+};
+
 export default async function ProjectsPage() {
   const projects = await getProjects();
   const applications = await getApplications();

@@ -15,6 +15,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${project.title} - Projelerimiz | L'art Peyzaj Mimarlık`,
     description: project.description?.substring(0, 160) || "L'art Peyzaj özel mimari projesi tasarımı ve uygulaması.",
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
     openGraph: {
       title: `${project.title} | L'art Peyzaj`,
       description: project.description?.substring(0, 160) || "L'art Peyzaj özel mimari projesi tasarımı ve uygulaması.",

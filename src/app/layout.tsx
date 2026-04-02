@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     "L'art Peyzaj Mimarlık — Konya merkezli, doğayı ve modern mimariyi birleştiren premium peyzaj tasarım firması.",
   keywords: ["peyzaj", "mimarlık", "konya", "bahçe tasarımı", "peyzaj mimarlık", "peyzaj tasarım", "L'art"],
   metadataBase: new URL("https://lartpeyzaj.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "L'art Peyzaj Mimarlık | Konya",
     description: "Doğayı ve modern mimariyi birleştiren premium peyzaj tasarım firması.",
